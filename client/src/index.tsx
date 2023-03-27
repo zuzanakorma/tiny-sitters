@@ -7,20 +7,21 @@ import LogIn from './Components/LogIn/LogIn';
 import Register from './Components/Register/Register';
 import Calendar from './Components/Calendar/Calendar';
 import Sitters from './Components/Sitters/Sitters';
+import SelectedSitter from './Components/Sitters/SelectedSitter';
 // import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+     <BrowserRouter>
       <Routes>
-        <Route  path="/" Component={App} />
-        <Route  path="/login" Component={LogIn} />
-        <Route  path="/register" Component={Register} />
-        <Route  path="/pickdate" Component={Calendar} />
-        <Route  path="/sitters" Component={Sitters} />
-
+        <Route path="/" Component={App} />
+        <Route path="/login" Component={LogIn} />
+        <Route path="/register" Component={Register} />
+        <Route path="/pickdate" Component={Calendar} />
+        <Route path="/sitters" Component={Sitters} />
+        <Route path="/selectedsitter" Component={SelectedSitter} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
