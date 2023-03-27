@@ -1,10 +1,11 @@
 import Router from "express";
 import cors from "cors";
+import getSitters from "../sittersDb/db";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("hello from sitters");
+router.get("/",async (req, res) => {
+  const sitters = await getSitters();
+  res.json(sitters)
 });
-
 export default router;

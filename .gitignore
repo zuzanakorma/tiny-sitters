@@ -4,6 +4,7 @@
 /.pnp
 .pnp.js
 
+*data/
 # testing
 /coverage
 
@@ -34,3 +35,8 @@ personal-notes.md
 
 
 
+server/data/mongdb/WiredTiger.turtle
+.gitignore
+server/data/mongdb/diagnostic.data/metrics.2023-03-27T08-33-42Z-00000
+.gitignore
+server/data/mongdb/journal/WiredTigerLog.0000000002
