@@ -35,7 +35,7 @@ export default function Sitters() {
     <div>
       {sitters.map((sitter: SitterType) => (
         <div key={sitter._id}>
-          <Link to={`/selectedsitter/${sitter._id}`}>
+          <Link to={`/selectedsitter?id=${sitter._id}`}>
             <h2 onClick={() => handleSitterClick(sitter)}>{sitter.name}</h2>
           </Link>
         </div>

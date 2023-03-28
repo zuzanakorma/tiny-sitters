@@ -10,7 +10,6 @@ const getSitters = async ()=>{
 
    console.log(`this is my sitter: ${JSON.stringify(sitter, null, 2)}`)
   return sitter;
- await client.close();
 }
 
 const getSitterById = async (id:string)=>{
@@ -21,9 +20,9 @@ const getSitterById = async (id:string)=>{
    const col: mongoDB.Collection = db.collection('sitters');
    const sitter = await col.findOne({_id: myObjectId})
 
-   console.log(`this is my sitter: ${JSON.stringify(sitter, null, 2)}`)
+   console.log(`this is my sitter by id: ${JSON.stringify(sitter, null, 2)}`)
+   console.log(sitter);
   return sitter;
- await client.close();
 }
 
 export {getSitters, getSitterById};
