@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import LogIn from './Components/LogIn/LogIn';
-import Register from './Components/Register/Register';
 import Calendar from './Components/Calendar/Calendar';
 import Header from './Components/Header/Header';
 import { Link } from 'react-router-dom';

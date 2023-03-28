@@ -1,0 +1,27 @@
+.form__container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form__container-input{
+    margin-top: 10px;
+    color: darkblue;
+    font-size: 25px;
+    border: 3px solid white;
+  border-radius: 3px;
+  padding: 13px;
+}
+
+.form__container-input::placeholder {
+    color: darkblue;
+  }
+  
+.form__container-btn{
+    background-color: darkblue;
+    color: white;
+    border: darkblue;
+    
+}

@@ -1,25 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
-
-
   
 :root {
   --main-bg-color: #FFB3C1;
-  --purple: hsl(264, 100%, 27%);
+  --purple: #37008a;
+  --islandaqua: #00C9B8;
 }
   
 * {
-   background-color: var(--main-bg-color); 
-   font-family: 'Blinker', sans-serif;
+ font-family: 'Blinker', sans-serif;
 }
 
-.homepage {
-  background-color: #FFFFFF;
+h4 {
+  font-size: 14px;
+  text-align: center;
+  color: white;
+  font-weight: 400;
 }
+
+.homepage, .authentication {
+  position: fixed;
+  background-color: var(--main-bg-color);
+  background-repeat: repeat;
+  background-size: 225% 150%, cover;
+  background-position: center, 50% 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.authentication {
+  background-color: var(--islandaqua);
+}
+
+
   
 .main__title {
   text-align: center;
   color: var(--purple);
-  font-size: 4.0em;
+  font-size: 4.8em;
   line-height: 0.9em;
   font-weight: 800;
 }
@@ -29,7 +46,7 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  bottom: 100px;
+  bottom: 50px;
   width: 100%;
 }
 
@@ -39,6 +56,7 @@
   border: 3px solid white;
   border-radius: 3px;
   width: 80%;
+  max-width: 630px;
   padding: 13px;
   text-align: center;
   justify-content: center;
@@ -48,7 +66,7 @@
   color: white;
 }
 
-.pick__dat {
+.pick__date {
   color:var(--purple);
   background-color: white;
 }
