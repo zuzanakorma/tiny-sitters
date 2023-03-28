@@ -1,24 +1,30 @@
-  @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
 
-  /* font-family: 'Blinker', sans-serif; */
-  :root {
-    --main-bg-color: rgb(242, 202, 209);
-  }
+
   
-  *{
-    background-color: var(--main-bg-color); 
-      font-family: 'Blinker', sans-serif;
+:root {
+  --main-bg-color: #FFB3C1;
+  --purple: hsl(264, 100%, 27%);
+}
+  
+* {
+   background-color: var(--main-bg-color); 
+   font-family: 'Blinker', sans-serif;
+}
 
-  }
-  .main__title{
-    text-align: center;
-    color: darkblue;
-font-size: 50px;
-line-height: 1em;
+.homepage {
+  background-color: #FFFFFF;
+}
+  
+.main__title {
+  text-align: center;
+  color: var(--purple);
+  font-size: 4.0em;
+  line-height: 0.9em;
+  font-weight: 800;
+}
 
-  }
-
-.main__btns{
+.main__btns { 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,21 +32,23 @@ line-height: 1em;
   bottom: 100px;
   width: 100%;
 }
-.main__link{
-  font-weight: bold;
 
+.main__link {
+  font-weight: bold;
   text-decoration: none;
-  border: 2px solid white;
+  border: 3px solid white;
+  border-radius: 3px;
   width: 80%;
-  padding: 30px;
+  padding: 13px;
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 25px;
   color: white;
 }
-.pick__date{
-  color: darkblue;
+
+.pick__dat {
+  color:var(--purple);
   background-color: white;
 }
