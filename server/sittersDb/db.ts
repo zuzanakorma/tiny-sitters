@@ -1,11 +1,11 @@
 import * as mongoDB from 'mongodb';
 import client from '../db/client';
 
-const getSitters = async () => {
+const getSitters = async (date) => {
   await client.connect();
   const db: mongoDB.Db = client.db('tinysitters');
   const col: mongoDB.Collection = db.collection('sitters');
-  const sitter = await col.find({}).toArray();
+  const sitter = await col.find({bookings: {$nin: [date]}}).toArray();
 
   console.log(`this is my sitter: ${JSON.stringify(sitter, null, 2)}`);
   return sitter;

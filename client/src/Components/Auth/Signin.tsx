@@ -26,9 +26,9 @@ export default function Signin() {
     <>
     <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
     <Header />
+    <h2>Log In to your Account</h2>
     <form onSubmit={signIn} className="form__container">
-      <h2>Log In to your Account</h2>
-      <input
+        <input
         className="form__container-input"
         type="email"
         placeholder="Enter your email"
@@ -47,7 +47,6 @@ export default function Signin() {
     </form>
     <AuthDetails/>
   </div>
- 
   </>
   )
 }

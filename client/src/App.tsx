@@ -5,7 +5,7 @@ import background from "./Assets/bg.svg";
 function App() {
   return (
     <>
-    <div className="homepage" style={{ backgroundImage: `url(${background})` }}>
+    <div className="mainpage" style={{ backgroundImage: `url(${background})` }}>
     <Header/>
     <div className='main__title'>You go out... <br /> we take care <br /> of your <br /> little ones </div>
     <div className='main__btns'>

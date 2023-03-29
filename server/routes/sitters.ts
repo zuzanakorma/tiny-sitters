@@ -3,8 +3,14 @@ import { getSitters, getSitterById } from '../sittersDb/db';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
-  const sitters = await getSitters();
+// router.get('/', async (req, res) => {
+//   const sitters = await getSitters();
+//   res.json(sitters);
+// });
+
+router.get('/:date', async (req, res) => {
+  const {date} = req.params
+  const sitters = await getSitters(date);
   res.json(sitters);
 });
 

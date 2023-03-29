@@ -12,9 +12,9 @@ export default function AuthDetails() {
     const [authUser, setAuthUser] = useState<AuthUser>();
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        navigate("/calendar");
-    }
+    // const handleClick = () => {
+    //     navigate("/calendar");
+    // }
 
     useEffect(() => {
       const listen = onAuthStateChanged(auth, (user:any) => {
@@ -31,13 +31,13 @@ export default function AuthDetails() {
       };
     }, []);
   
-    const userSignOut = () => {
-      signOut(auth)
-        .then(() => {
-          console.log("sign out successful");
-        })
-        .catch((error) => console.log(error));
-    };
+    // const userSignOut = () => {
+    //   signOut(auth)
+    //     .then(() => {
+    //       console.log("sign out successful");
+    //     })
+    //     .catch((error) => console.log(error));
+    // };
   
     return (
       <div>

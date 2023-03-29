@@ -27,7 +27,7 @@ h4 {
 }
 
 
-.homepage, .authentication {
+.mainpage, .authentication {
   position: fixed;
   background-color: $main-bg-color;
   background-repeat: repeat;
@@ -62,13 +62,19 @@ h4 {
 
 @media only screen and (max-width: 400px) {
   .main__title {
-      font-size: 3.8em;
+      font-size: 3.9em;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+  .main__title {
+      font-size: 4.2em;
     }
 }
 
 @media only screen and (min-width: 801px) {
   .main__title {
-      font-size: 5.8em;
+      font-size: 4.8em;
     }
 }
 
@@ -100,6 +106,6 @@ h4 {
 
 .pick__date {
   background-color: white;
-  color: #37008a;
+  color: $purple;
 }
 

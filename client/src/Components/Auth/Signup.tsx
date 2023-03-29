@@ -4,16 +4,18 @@ import { auth } from "../../config";
 import "./auth.scss";
 import background from "../../Assets/bg-green.svg";
 import Header from '../Header/Header';
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const signUp = (e:any) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
-            console.log(userCredential);
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);
@@ -48,7 +50,7 @@ export default function Signup() {
       ></input>
       <button className="form__container-input form__container-btn" type="submit">Sign Up</button>
     </form>
-
+    
   </div>
   </>
   )
