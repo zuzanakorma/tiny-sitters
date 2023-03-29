@@ -1,7 +1,6 @@
 import React from 'react'
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import {  signOut } from "firebase/auth";
 import { auth } from "../../config";
-import AuthDetails from '../AuthDetails';
 import { useNavigate } from 'react-router-dom';
 
 

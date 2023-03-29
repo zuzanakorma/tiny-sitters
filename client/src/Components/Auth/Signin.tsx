@@ -4,7 +4,7 @@ import { auth } from '../../config';
 import AuthDetails from '../AuthDetails';
 import background from "../../Assets/bg-green.svg";
 import Header from '../Header/Header';
-import "./auth.css";
+import "./auth.scss";
 import { Link } from 'react-router-dom';
 
 export default function Signin() {
@@ -26,9 +26,8 @@ export default function Signin() {
     <>
     <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
     <Header />
-    <div className="sign-in-container">
     <form onSubmit={signIn} className="form__container">
-      <h1>Log In to your Account</h1>
+      <h2>Log In to your Account</h2>
       <input
         className="form__container-input"
         type="email"
@@ -43,12 +42,10 @@ export default function Signin() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       ></input>
-
-      <button type="submit" className="form__container-input form__container-btn">Log In</button>
+      <button type="submit" className="form__container-input form__container-btn">Log in</button>
+      <h4>No account yet? <Link to='/register' className="createaccount">Create Account</Link></h4>
     </form>
     <AuthDetails/>
-  </div>
-  <h4>No account yet?<Link to='/register'>Create Account</Link></h4>
   </div>
  
   </>

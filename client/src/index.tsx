@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import App from './App';
-
+import './index.css';
+import './app.scss';
 import Calendar from './Components/Calendar/Calendar';
 import Sitters from './Components/Sitters/Sitters';
 import SelectedSitter from './Components/Sitters/SelectedSitter';

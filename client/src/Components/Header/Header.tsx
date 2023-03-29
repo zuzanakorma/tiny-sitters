@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from './tinysitters_logo.svg';
-import "./header.css"
+import "./header.scss";
+
 const Header = () => {
 
   return (
