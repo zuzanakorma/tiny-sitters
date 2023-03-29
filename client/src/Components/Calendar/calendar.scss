@@ -26,3 +26,79 @@
   padding: 13px 0 17px;
   text-align: center;
 }
+
+.react-datepicker {
+    margin: auto;
+    width: 80%;
+    background-color: transparent;
+}
+
+
+.react-datepicker__month-container {
+    width: 100%;
+}
+
+.rastastripes {
+  color: pink;
+  background-color: transparant;
+}
+
+.react-datepicker__day {
+    color: aquamarine;
+    font-size: 14px;
+    text-align: center;
+   
+    width: 30px;
+    height: 30px;
+  }
+
+  .react-datepicker__header {
+    background-color: transparent;
+  }
+
+  
+  
+
+.react-datepicker__time-container {
+  width: 100%;
+  margin: auto;
+  background-color: app.$purple;
+  border: 0px;
+  background-color: transparent;
+}
+
+
+
+.react-datepicker__time {
+  background-color: transparent;
+  border: 6px;
+}
+
+
+.react-datepicker__time-box {
+  background-color: transparent;
+  border: 0px;
+}
+
+.react-datepicker__time-list {
+  background-color: transparent;
+  border: 0px;
+}
+
+.react-datepicker__time-list-item {
+  background-color: transparent;
+  border: 0px;
+}
+
+
+.second-time-picker {
+  display: block;
+  width: 300px;
+  height: 200px;
+  padding: 300px;
+}
+
+.second-time-picer > .react-datepicker {
+  width: 20px;
+
+}

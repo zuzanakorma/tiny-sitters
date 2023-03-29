@@ -10,6 +10,7 @@ import Sitters from './Components/Sitters/Sitters';
 import SelectedSitter from './Components/Sitters/SelectedSitter';
 import Signup from './Components/Auth/Signup';
 import Signin from './Components/Auth/Signin';
+import ClientForm from './Components/ClientForm/ClientForm';
 // import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,6 +25,7 @@ root.render(
         <Route path="/calendar" Component={Calendar} />
         <Route path="/sitters" Component={Sitters} />
         <Route path="/selectedsitter" Component={SelectedSitter} />
+        <Route path="/client" Component={ClientForm} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

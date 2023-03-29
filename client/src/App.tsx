@@ -12,6 +12,7 @@ function App() {
       <Link className='main__link' to='/login'>Log in</Link>
       <Link className='main__link' to='/register'>Create Account</Link>
       <Link className='pick__date' to='/calendar'>Pick Date</Link>
+      
       </div>
       </div>
     </>

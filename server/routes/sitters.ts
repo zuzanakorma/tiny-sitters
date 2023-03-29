@@ -1,24 +1,35 @@
 import Router from 'express';
-import { getSitters, getSitterById } from '../sittersDb/db';
+import { getAvailableSitters, getSitterById, updateSitterBookings} from '../sittersDb/db';
 
 const router = Router();
 
 // router.get('/', async (req, res) => {
-//   const sitters = await getSitters();
+//   const sitters = await getAvailableSitters();
 //   res.json(sitters);
 // });
 
-router.get('/:date', async (req, res) => {
+router.get('/available/:date', async (req, res) => {
   const {date} = req.params
-  const sitters = await getSitters(date);
+  const sitters = await getAvailableSitters(date);
   res.json(sitters);
 });
 
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
+  const id = req.params.id;
   const sitter = await getSitterById(id);
   res.json(sitter);
   console.log(sitter);
 });
+
+// router.patch('/update/:id', async (req, res) => {
+//   const id = req.params.id;
+//   const {date} = req.body;
+//   const sitter = await updateSitterBookings(id,date);
+//    return res
+//    .set('Content-Type', 'application/json')
+//    .status(200)
+//    .json(sitter);
+//   // console.log(date);
+// });
 
 export default router;
