@@ -30,7 +30,7 @@ const updateSitterBookings = async (id:string,date:string) => {
   const sitter = await col.findOne({ _id: myObjectId })
   if(sitter){
    const updateSitter =  await col.updateOne({ _id: myObjectId},{$push:{bookings:date} });
-   console.log(updateSitter);
+   console.log("updated", updateSitter);
    return updateSitter;
   }
   return null;

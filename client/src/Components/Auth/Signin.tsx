@@ -47,6 +47,7 @@ export default function Signin() {
     </form>
     <AuthDetails/>
   </div>
+
   </>
   )
 }

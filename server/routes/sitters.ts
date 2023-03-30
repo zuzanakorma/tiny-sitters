@@ -18,18 +18,18 @@ router.get('/:id', async (req, res) => {
   const id = req.params.id;
   const sitter = await getSitterById(id);
   res.json(sitter);
-  console.log(sitter);
+  console.log("here",sitter);
 });
 
-// router.patch('/update/:id', async (req, res) => {
-//   const id = req.params.id;
-//   const {date} = req.body;
-//   const sitter = await updateSitterBookings(id,date);
-//    return res
-//    .set('Content-Type', 'application/json')
-//    .status(200)
-//    .json(sitter);
-//   // console.log(date);
-// });
+router.patch('/update/:id', async (req, res) => {
+  const id = req.params.id;
+  const date: string= req.body.date;
+  const sitter = await updateSitterBookings(id,date);
+   return res
+   .set('Content-Type', 'application/json')
+   .status(200)
+   .json(sitter);
+
+});
 
 export default router;
