@@ -11,6 +11,8 @@ import SelectedSitter from './Components/Sitters/SelectedSitter';
 import Signup from './Components/Auth/Signup';
 import Signin from './Components/Auth/Signin';
 import ClientForm from './Components/ClientForm/ClientForm';
+import Checkout from './Components/Checkout/Checkout';
+import SuccessPage from './Components/SuccessPage/SuccessPage';
 // import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,6 +28,8 @@ root.render(
         <Route path="/sitters" Component={Sitters} />
         <Route path="/selectedsitter" Component={SelectedSitter} />
         <Route path="/client" Component={ClientForm} />
+        <Route path="/checkout" Component={Checkout} />
+        <Route path="/success" Component={SuccessPage} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SitterType from '../../../../types';
 import api from '../../Api/api';
+import Checkout from '../Checkout/Checkout';
 
 export default function SelectedSitter() {
   const [nannyinfo, setNannyinfo] = useState<SitterType>();
@@ -22,6 +23,7 @@ export default function SelectedSitter() {
   }, []);
 
   return (
+    <>
     <div>
       {nannyinfo && (
         <>
@@ -30,5 +32,7 @@ export default function SelectedSitter() {
         </>
       )}
     </div>
+    <Checkout/>
+    </>
   );
 }
