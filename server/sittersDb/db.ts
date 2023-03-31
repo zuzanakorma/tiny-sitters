@@ -1,6 +1,31 @@
 import * as mongoDB from 'mongodb';
 import client from '../db/client';
-const data = require('../db/preSeedData.json')
+const data = require('../db/preSeedData.json');
+const admin = require('firebase-admin');
+const serviceAccount = require('../fir-react-authentication-c2241-firebase-adminsdk-psqkv-655ed5a0cf.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://fir-react-authentication-c2241.firebaseio.com'
+});
+
+const database = admin.firestore();
+
+const getSitterFromFirebase = async (email:any) => {
+  const usersRef = database.collection('users');
+  const querySnapshot = await usersRef.where('email', '==', email).get();
+
+  if (querySnapshot.empty) {
+    return null; // User not found
+  }
+
+  // We assume that there is only one document per user email
+  const userDoc = querySnapshot.docs[0];
+  return {
+    username: userDoc.get('name'),
+    email: userDoc.get('email')
+  };
+};
 
 const getAvailableSitters = async (date) => {
   await client.connect();
@@ -39,4 +64,4 @@ const preSeedData = async () => {
 
 
 
-export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData };
+export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData, getSitterFromFirebase };
