@@ -1,39 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import SitterType from '../../../../types';
-import api from '../../Api/api';
+
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import background from "../../Assets/bg-green.svg";
+import Header from "../Header/Header";
 import Checkout from '../Checkout/Checkout';
+import './sitters.scss';
 
-export default function SelectedSitter() {
-  const [nannyinfo, setNannyinfo] = useState<SitterType>();
-  // const searchParams = new URLSearchParams(useLocation().search);
-  // const id = searchParams.get('id');
+const SelectedSitter: React.FC = (props) => {
+  const location = useLocation();
+  const propsData = location.state;
+  const {name, description, dateofbirth} = propsData;
 
-  let { state } = useLocation();
-console.log(state)
-  useEffect(() => {
-    const getSitterById = async (id: any) => {
-      try {
-        const response = await api.get(`/api/sitters/${id}`);
-        setNannyinfo(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getSitterById(state.sitter);
-  }, []);
+  // const today = new Date();
+  // const todayConverted = today.toLocaleDateString('en-GB');
+  // const todayString = Date.parse(todayConverted);
+  // const dateofbirthString = Date.parse(dateofbirth);
+  // const age = todayString - dateofbirthString;
 
   return (
     <>
-    <div>
-      {nannyinfo && (
-        <>
-          <h2>Sitter info:</h2>
-          <p>Name: {nannyinfo.name}</p>
-        </>
-      )}
-    </div>
-    <Checkout/>
+      <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
+        <Header />
+      <h2>{ name }</h2>
+        {/* <h4>Age: {age}</h4> */}
+      <h4 className='sitter_description'>{ description }</h4>
+      <Checkout/>
+      </div>
     </>
   );
 }
+
+
+export default SelectedSitter;

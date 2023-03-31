@@ -26,7 +26,7 @@ root.render(
         <Route path="/register" Component={Signup} />
         <Route path="/calendar" Component={Calendar} />
         <Route path="/sitters" Component={Sitters} />
-        <Route path="/selectedsitter" Component={SelectedSitter} />
+        <Route path="/selectedsitter" element={<SelectedSitter />} />
         <Route path="/client" Component={ClientForm} />
         <Route path="/checkout" Component={Checkout} />
         <Route path="/success" Component={SuccessPage} />

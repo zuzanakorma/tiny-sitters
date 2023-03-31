@@ -2,8 +2,7 @@ import {CLIENT_ID} from '../../Config/Config';
 import React, { useState, useEffect } from "react" ;
 import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-
-
+import './checkout.scss';
 
 const Checkout = () => {
     const [show, setShow] = useState(false);
@@ -70,6 +69,7 @@ const Checkout = () => {
                 <br></br>
                 {show ? (
                     <PayPalButtons
+                        className='paypal-btn'
                         style={{ layout: "vertical" }}
                         createOrder={createOrder}
                         onApprove={onApprove}

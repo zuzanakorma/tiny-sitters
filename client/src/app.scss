@@ -4,19 +4,37 @@ $main-bg-color:  #FFB3C1;
 $purple:#37008a; 
 $islandaqua: #00C9B8;
 $gray: #E2E0E5;
-
+$grapefruitred: #FF5E54;
 
 * {
  font-family: 'Blinker', sans-serif;
  letter-spacing: 0.02em;
 }
 
-h2, h4 {
+h1, h2, h3, h4 {
   padding: 30px 0 30px;
   font-size: 28px;
   text-align: center;
   color: $purple;
   font-weight: 300;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 22px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-weight: 600;
 }
 
 h4 {

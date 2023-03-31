@@ -28,6 +28,7 @@
   width: 100%;
   margin-top: 30px;
   margin-bottom: 50px;
+  text-decoration: none;
 }
 
 .react-datepicker {
@@ -40,7 +41,7 @@
   width: 350px;
   height: 440px;
   border-radius: 0;
-  border-bottom: 0px solid white;
+  border-bottom: 2px solid white;
   margin-bottom: 40px;
 }
 
@@ -143,40 +144,29 @@
   margin: 10px 5px;
 }
 
-.react-datepicker__navigation--next--with-time {
-  right: 0;
-}
-
 .react-datepicker__navigation-icon {
   margin-bottom: 9px;
-}
+ }
  
 .react-datepicker__navigation-icon--next {
   margin-left: 2px;
-}
-
+ }
+ 
  .react-datepicker__navigation-icon--previous {
   margin-right: 2px;
  }
 
-li.react-datepicker__time-list-item--selected:hover {
-  background-color: app.$purple;
-}
-
-.react-datepicker__time-container, .react-datepicker__time {
-  position: relative;
-  background: transparent;
-  border-bottom-right-radius: 0.3rem;
-  overflow-y: hidden;
-  height: 180px;
-  top: 40px;
-}
-
-.react-datepicker__time-container {
+ .react-datepicker__time-container {
   width: 100%;
   margin: auto;
+  background-color: app.$purple;
   border: 0px;
   background-color: transparent;
+}
+
+.react-datepicker__time {
+  background-color: transparent;
+  border: 6px;
 }
 
 .react-datepicker__time-box {
@@ -197,7 +187,7 @@ li.react-datepicker__time-list-item--selected:hover {
 #react-time-range {
   width: 280px;
   margin: auto;
-  padding-top: 300px;
+  padding-top: 0px;
 }
 
 #react-time-range > error {
@@ -237,5 +227,6 @@ option {
   font-family: 'Blinker', sans-serif;
   letter-spacing: 0.02em;
   color: app.$purple;
+  font-size: 10px;
 }
 

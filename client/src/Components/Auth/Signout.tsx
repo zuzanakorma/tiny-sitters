@@ -2,6 +2,7 @@ import React from 'react'
 import {  signOut } from "firebase/auth";
 import { auth } from "../../config";
 import { useNavigate } from 'react-router-dom';
+import "./auth.scss";
 
 
 export default function Signout() {
@@ -17,7 +18,7 @@ export default function Signout() {
     
   return (
     
-        <div onClick={userSignOut}>Sign Out</div>
+        <div className='signout' onClick={userSignOut}>Sign Out</div>
         
   )
 }

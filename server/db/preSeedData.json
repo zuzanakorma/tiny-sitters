@@ -1,26 +1,24 @@
 [
   {
     "id": "642578029fdf623741730929",
-    "name": "Elpachris",
+    "name": "Alex",
     "dateOfBirth": "23/03/1990",
-    "description": "Alex  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "description": "Alex is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
     "weekdays": "true",
     "weekends": "false",
     "bookings": [
       "2023-04-01T17:00:00.000Z",
       "2023-03-30T12:00:00.000Z",
-      "2023-03-31T14:00:00.000Z",
-      "2023-10-10T14:00:00.000Z",
       "2023-10-10T14:00:00.000Z",
       "2023-10-10T14:00:00.000Z"
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+    "image": "https://i.ibb.co/HVtxRKv/alex.jpg"
   },
   {
     "id": "64257834b8ccc8ae91bc70df",
-    "name": "Happy Prabodhi",
+    "name": "Sarah",
     "dateOfBirth": "13/08/1988",
-    "description": "Elise is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "description": "Sarah is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
     "weekdays": "false",
     "weekends": "true",
     "bookings": [
@@ -28,26 +26,109 @@
       "2023-03-31T09:00:00.000Z",
       "2023-03-31T14:00:00.000Z"
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+    "image": "https://i.ibb.co/ymTKDX0/sarah.jpg"
   },
   {
     "id": "642578029fdf623722730929",
-    "name": "Mary Poppins",
+    "name": "Brian",
     "dateOfBirth": "23/03/1990",
-    "description": "Alex  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "description": "Brian is a highly experienced and qualified babysitter with 4 years of experience working with children. Brian also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
     "weekdays": "true",
     "weekends": "false",
     "bookings": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+    "image": "https://i.ibb.co/jZyT33D/brian.jpg"
   },
   {
     "id": "642578029fdf623722730879",
-    "name": "SuperNany Elton",
+    "name": "Hugo",
     "dateOfBirth": "23/03/1990",
     "description": "SuperNany  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
     "weekdays": "true",
     "weekends": "false",
     "bookings": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+    "image": "https://i.ibb.co/JKmdQ0X/hugo.jpg"
+  },
+  {
+    "id": "642578029fdf623741730935",
+    "name": "Britney",
+    "dateOfBirth": "26/01/1995",
+    "description": "Britney is a compassionate and reliable babysitter with over 3 years of experience caring for children. She has a natural talent for connecting with kids and creating a warm and nurturing environment. Britney understands that each child is unique and requires individual attention, and she goes above and beyond to meet their needs.In addition to her caring nature, Britney is also great at coming up with fun and educational activities to keep children engaged and entertained. She loves to sing, dance, read books and play games with the kids she cares for. Britney is also trained in basic first aid and has a keen eye for identifying potential hazards and taking appropriate precautions to ensure the safety of the children in her care. Parents can trust Britney to provide a secure and loving environment for their little ones, allowing them to relax and enjoy their time away from home.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+      "2023-05-01T14:00:00.000Z",
+      "2023-02-31T09:00:00.000Z"
+    ],
+    "image": "https://i.ibb.co/jZ6t2gd/britney.jpg"
+  },
+  {
+    "id": "642578029fdf623741730936",
+    "name": "Simon",
+    "dateOfBirth": "16/08/2000",
+    "description": "Dmytro is an experienced and nurturing babysitter with over 5 years of experience working with children of all ages. He has a gift for connecting with kids and creating a fun and stimulating environment for them to learn and grow. Dmytro's approach to childcare is centered around fostering a sense of curiosity and wonder in the children he cares for. He loves to introduce them to new experiences, whether it's taking them on nature walks, playing board games, or teaching them new skills like painting or cooking.Dmytro is also a patient and compassionate caregiver who understands the importance of building trust with children. He takes the time to listen to their needs and concerns, and always makes sure they feel heard and understood.Parents can rest assured that their children are in good hands with Dmytro. His extensive experience and training in childcare, as well as his passion for working with children, make him a valuable asset to any family.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+     "2023-01-01T11:00:00.000Z",
+     "2023-02-15T08:00:00.000Z"
+    ],
+    "image": "https://i.ibb.co/T4yG0Zz/simon.jpg"
+  },
+  {
+    "id": "642578029fdf623741730937",
+    "name": "Kanye East",
+    "dateOfBirth": "18/02/1999",
+    "description": "Kanye East is a skilled and experienced babysitter with a passion for working with children. He has a natural ability to connect with kids of all ages and create a fun, safe and engaging environment for them. Kanye has been working as a babysitter for several years and has developed a range of skills and techniques to help children feel comfortable and happy in his care. He is patient, kind and compassionate, and always takes the time to listen to the needs and concerns of the children he cares for. Kanye is also creative and imaginative, and he loves to come up with new games and activities to keep kids entertained and stimulated. Whether it's playing board games, doing crafts, or going on outdoor adventures, Kanye always ensures that the children he cares for are having fun while learning and growing. Parents can trust Kanye to provide top-notch care for their children, knowing that he is reliable, responsible and committed to their well-being. His extensive experience and training in childcare, as well as his natural talent for working with kids, make him an excellent choice for families seeking a trustworthy and skilled babysitter.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+      "2023-03-07T15:00:00.000Z"
+    ],
+    "image": "https://media.istockphoto.com/id/1372428308/photo/young-man-smiling-while-wearing-a-yellow-shirt-by-a-yellow-wall.jpg?b=1&s=170667a&w=0&k=20&c=eHEYVv7LG5R2TLgDq2DOP6hd1daSu7GbCILS3ZRDk6A="
+  },
+  {
+    "id": "642578029fdf623741730938",
+    "name": "Elise",
+    "dateOfBirth": "20/05/1994",
+    "description": "Elise is a skilled and dedicated babysitter with two years of experience working in the childcare industry. She loves spending time with children and has a natural talent for creating a fun and safe environment for them to learn and grow. One of Victoria's favorite things to do with kids is to read to them. She believes that reading not only helps children develop important literacy skills, but also fosters their imagination and creativity. She often brings her favorite children's books to read aloud to the children she cares for, and encourages them to ask questions and participate in the story. Parents who entrust their children to Victoria can rest assured that they are in good hands. She is reliable, responsible, and always puts the children's safety and well-being first. With her passion for childcare and commitment to excellence, Victoria is a top choice for families seeking a caring and experienced babysitter.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+      "2023-04-11T13:00:00.000Z",
+      "2023-05-22T18:00:00.000Z",
+      "2023-06-08T20:00:00.000Z",
+      "2023-07-14T12:00:00.000Z",
+      "2023-08-16T03:00:00.000Z"
+    ],
+    "image": "https://i.ibb.co/vZKpv0p/elise.jpg"
+  },
+  {
+    "id": "642578029fdf623741730939",
+    "name": "Chelsea",
+    "dateOfBirth": "30/01/1989",
+    "description": "Chelsea is a skilled and experienced babysitter who has a passion for working with children. She has been providing exceptional care to children for several years and has developed a range of skills and techniques to ensure that children are safe, comfortable, and happy in her care. Amanda is kind, patient, and compassionate, and always takes the time to listen to the needs and concerns of the children she cares for. She has a natural talent for connecting with kids of all ages and creating a fun and engaging environment for them. Amanda is also creative and resourceful, and loves to come up with new activities and games to keep children entertained and stimulated. Whether it's playing board games, doing crafts, or going on outdoor adventures, Amanda ensures that the children she cares for are having fun while learning and growing.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+    ],
+    "image": "https://i.ibb.co/47mLwyY/chelsea.jpg"
+  },
+  {
+    "id": "642578029fdf623741730940",
+    "name": "Kimberly",
+    "dateOfBirth": "10/06/1995",
+    "description": "Sarah Johnson is a highly experienced and dedicated babysitter who has a genuine passion for working with children. With several years of experience in childcare, she has honed her skills and techniques to ensure that children are well taken care of and happy in her care. Sarah's warm and friendly demeanor makes her an excellent caregiver, and she always takes the time to listen to the needs of both parents and children. Her patience and compassion are unmatched, and she has a natural talent for connecting with kids of all ages. As a creative and resourceful babysitter, Sarah loves to come up with new and exciting activities that keep children entertained and stimulated. Whether it's playing board games, doing arts and crafts, or going on outdoor adventures, she always ensures that every child in her care is having fun while also learning and growing. Parents can trust Sarah to provide exceptional care for their children, knowing that she is reliable, responsible, and committed to their well-being. Her dedication to creating a safe and nurturing environment for children is unmatched, making her a top choice for families seeking a skilled and caring babysitter.",
+     "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+
+    ],
+    "image": "https://media.istockphoto.com/id/936419870/photo/charming-female-on-yellow-backdrop.jpg?s=612x612&w=0&k=20&c=OcsaV1ceOQzjj8KopR4NEMKSJKU_1GOBr4ykZeC7zSQ="
   }
 ]
+
+
+
+
+
+

@@ -41,9 +41,7 @@ export default function Calendar() {
             timeIntervals={60}
             timeFormat="HH:mm"
             dateFormat="dd-MM-yyyy HH:mm"
-            // timeClassName="time"
             inline
-            // filterDate={isWeekday}
           />
           <Link className="next-btn" to="/sitters" state={{startDate: startDate.toISOString()}}>Next
            {/* <div className='next-btn' onClick={calendar}>Next</div> */}

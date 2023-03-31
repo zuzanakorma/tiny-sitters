@@ -5,7 +5,8 @@ type SitterType = {
     description: string,
     weekdays?: boolean,
     weekends?: boolean,
-    image: string
+    image: string,
+    booking: string[],
 }
 
 export default SitterType;

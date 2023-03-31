@@ -3,6 +3,9 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import api from "../../Api/api";
 import SitterType from "../../../../types";
 import SelectedSitter from "./SelectedSitter";
+import background from "../../Assets/bg-green.svg";
+import './sitters.scss';
+import Header from "../Header/Header";
 
 export default function Sitters() {
   let { state } = useLocation();
@@ -26,30 +29,25 @@ export default function Sitters() {
     getAvailableSitters(startDate);
   }, []);
 
-  // const handleSitterClick = (sitter: SitterType) => {
-  //   setSelectedSitter(sitter);
-  // }
-
-  // if (selectedSitter) {
-  //   return <SelectedSitter />;
-  // }
-
   return (
     <>
-    <div>
-      {sitters.map((sitter: SitterType) => (
-        <div key={sitter.id}>
-          {/* <Link to={'/selectedsitter'} state={`${sitter.id}`} */}
-          <Link to={'/selectedsitter'} state={{...state, sitter: sitter.id}}
-          >
-
-            {/* <h2 onClick={() => handleSitterClick(sitter)}>{sitter.name}</h2> */}
-            <h2>{sitter.name}</h2>
-            <img src={sitter.image} width="100" alt="" />
+    <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
+          <Header />
+  
+          <div className="availablesitters">
+           {sitters.map((sitter: SitterType) => (
+          <div key={sitter.id}>
+           {/* <Link to={'/selectedsitter'} state={`${sitter.id}`} */}
+          <div className="availablesitters__card">
+          <Link to='/selectedsitter' state={sitter}>
+          
+            <img className="availablessitters__card__sitterimg" src={sitter.image} width="100" alt="" /><br />
+          {sitter.name}
           </Link>
+          </div>
         </div>
-        
       ))}
+    </div>
     </div>
     </>
   )
