@@ -3,13 +3,9 @@ import { getAvailableSitters, getSitterById, updateSitterBookings} from '../sitt
 
 const router = Router();
 
-// router.get('/', async (req, res) => {
-//   const sitters = await getAvailableSitters();
-//   res.json(sitters);
-// });
-
 router.get('/available/:date', async (req, res) => {
   const {date} = req.params
+  // console.log(req.query.test)
   const sitters = await getAvailableSitters(date);
   res.json(sitters);
 });
@@ -21,7 +17,7 @@ router.get('/:id', async (req, res) => {
   console.log("here",sitter);
 });
 
-router.patch('/update/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
   const id = req.params.id;
   const date: string= req.body.date;
   const sitter = await updateSitterBookings(id,date);

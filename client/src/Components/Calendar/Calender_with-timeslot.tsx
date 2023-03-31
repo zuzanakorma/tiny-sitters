@@ -36,8 +36,6 @@ export default function Calendar() {
   }
 
 
-
- 
   return (
     <>
       <div
@@ -64,7 +62,6 @@ export default function Calendar() {
         </div>
        
 
-       
         <h2>Available Sitter</h2>
         {sitter.map((p: any) => p.name)}
         <Signout />

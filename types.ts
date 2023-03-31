@@ -1,5 +1,5 @@
 type SitterType = {
-    _id: string;
+    id: string;
     name: string,
     dateofbirth: string,
     description: string,

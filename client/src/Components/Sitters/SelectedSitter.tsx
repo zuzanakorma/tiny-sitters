@@ -6,20 +6,21 @@ import Checkout from '../Checkout/Checkout';
 
 export default function SelectedSitter() {
   const [nannyinfo, setNannyinfo] = useState<SitterType>();
-  const searchParams = new URLSearchParams(useLocation().search);
-  const id = searchParams.get('id');
+  // const searchParams = new URLSearchParams(useLocation().search);
+  // const id = searchParams.get('id');
 
+  let { state } = useLocation();
+console.log(state)
   useEffect(() => {
     const getSitterById = async (id: any) => {
       try {
         const response = await api.get(`/api/sitters/${id}`);
-        console.log(response.data);
         setNannyinfo(response.data);
       } catch (error) {
         console.error(error);
       }
     };
-    getSitterById(id);
+    getSitterById(state.sitter);
   }, []);
 
   return (

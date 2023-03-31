@@ -1,0 +1,53 @@
+[
+  {
+    "id": "642578029fdf623741730929",
+    "name": "Elpachris",
+    "dateOfBirth": "23/03/1990",
+    "description": "Alex  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [
+      "2023-04-01T17:00:00.000Z",
+      "2023-03-30T12:00:00.000Z",
+      "2023-03-31T14:00:00.000Z",
+      "2023-10-10T14:00:00.000Z",
+      "2023-10-10T14:00:00.000Z",
+      "2023-10-10T14:00:00.000Z"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+  },
+  {
+    "id": "64257834b8ccc8ae91bc70df",
+    "name": "Happy Prabodhi",
+    "dateOfBirth": "13/08/1988",
+    "description": "Elise is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "weekdays": "false",
+    "weekends": "true",
+    "bookings": [
+      "2023-04-01T14:00:00.000Z",
+      "2023-03-31T09:00:00.000Z",
+      "2023-03-31T14:00:00.000Z"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+  },
+  {
+    "id": "642578029fdf623722730929",
+    "name": "Mary Poppins",
+    "dateOfBirth": "23/03/1990",
+    "description": "Alex  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+  },
+  {
+    "id": "642578029fdf623722730879",
+    "name": "SuperNany Elton",
+    "dateOfBirth": "23/03/1990",
+    "description": "SuperNany  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
+    "weekdays": "true",
+    "weekends": "false",
+    "bookings": [],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+  }
+]

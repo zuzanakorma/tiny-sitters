@@ -6,6 +6,8 @@ import background from "../../Assets/bg.svg";
 import "react-datepicker/dist/react-datepicker.css";
 import api from "../../Api/api";
 import './calendar.scss';
+import { Link } from "react-router-dom";
+import Sitters from "../Sitters/Sitters";
 
 export default function Calendar() {
   const [startDate, setStartDate] = useState(new Date());
@@ -16,11 +18,6 @@ export default function Calendar() {
     setSitter(response.data)
     console.log(sitter)
   }
-
-  // const isWeekday = (date) => {
-  //   const day = getDay(date);
-  //   return day !== 0 && day !== 6;
-  // };
 
   function handleChange(value: Date | null) {
     if (value) {
@@ -48,10 +45,13 @@ export default function Calendar() {
             inline
             // filterDate={isWeekday}
           />
-        <div className='next-btn' onClick={calendar}>Next</div>
+          <Link className="next-btn" to="/sitters" state={{startDate: startDate.toISOString()}}>Next
+           {/* <div className='next-btn' onClick={calendar}>Next</div> */}
+          </Link>
         </div>
-        <h2>Available Sitter</h2>
-        {sitter.map((p: any) => p.name)}
+        {/* <h2>Available Sitter</h2>
+        {sitter.map((p: any) => p.name)} */}
+        
         <Signout />
         
       </div>
