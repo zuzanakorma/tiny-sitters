@@ -4,20 +4,21 @@ import DatePicker from "react-datepicker";
 import Header from "../Header/Header";
 import background from "../../Assets/bg.svg";
 import "react-datepicker/dist/react-datepicker.css";
-import api from "../../Api/api";
+import { useLocation } from "react-router-dom";
 import './calendar.scss';
 import { Link } from "react-router-dom";
-import Sitters from "../Sitters/Sitters";
+import Profile from "../Profile/Profile";
+
+type AuthUser = {
+  email: undefined | string;
+};
 
 export default function Calendar() {
+  const location = useLocation();
+  const authUserParam = location.search ? new URLSearchParams(location.search).get("authUser") : null;
+  const authUser = authUserParam && JSON.parse(decodeURIComponent(authUserParam)) as AuthUser;
+  const email = authUser ? authUser.email : null;
   const [startDate, setStartDate] = useState(new Date());
-  const [sitter, setSitter] = useState([]);
-
-  async function calendar(){
-    const response = await api.get(`/api/sitters/available/${startDate.toISOString()}`)
-    setSitter(response.data)
-    console.log(sitter)
-  }
 
   function handleChange(value: Date | null) {
     if (value) {
@@ -47,8 +48,10 @@ export default function Calendar() {
            {/* <div className='next-btn' onClick={calendar}>Next</div> */}
           </Link>
         </div>
-        {/* <h2>Available Sitter</h2>
-        {sitter.map((p: any) => p.name)} */}
+
+        <Link className="next-btn" to="/profile" state={{email: email}}>Profile
+           {/* <div className='next-btn' onClick={calendar}>Next</div> */}
+          </Link>
         
         <Signout />
         
