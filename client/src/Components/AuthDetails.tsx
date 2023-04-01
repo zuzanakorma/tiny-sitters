@@ -1,53 +1,50 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { type } from "os";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { auth } from "../config";
-import { useNavigate } from 'react-router-dom';
-type AuthUser = {
-    email : undefined | string
+import Signout from "./Auth/Signout";
+import { AuthUser } from "../../../types";
+import { login } from './store';
+import { useDispatch } from 'react-redux';
+
+
+const AuthDetails = () => {
+  const [authUser, setAuthUser] = useState<AuthUser>();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user: any) => {
+      if (user) {
+        setAuthUser(user);
+        dispatch(login({ userUid: authUser!.userUid, userEmail: authUser!.userEmail }))
+      } else {
+        setAuthUser(undefined);
+      }
+    });
+  
+    return () => {
+      listen();
+    };
+  });
+
+
+  return (
+    <>
+    <div className="Navigation">
+      {authUser ? (
+        <>
+          <p>{`Signed in as ${authUser.userEmail}`}</p>
+          <p>Bookings</p>
+          <Signout />
+        </>
+      ) : (
+        <>
+          <p>About us</p>
+        </>
+      )}
+      </div>
+    </>
+  );
+  
 };
 
-export default function AuthDetails() {
-    const [authUser, setAuthUser] = useState<AuthUser>();
-    const navigate = useNavigate();
-
-    // const handleClick = () => {
-    //     navigate("/calendar");
-    // }
-
-    useEffect(() => {
-      const listen = onAuthStateChanged(auth, (user:any) => {
-        if (user) {
-          setAuthUser(user);
-
-        } else {
-          setAuthUser(undefined);
-        }
-      });
-  
-      return () => {
-        listen();
-      };
-    }, []);
-  
-    // const userSignOut = () => {
-    //   signOut(auth)
-    //     .then(() => {
-    //       console.log("sign out successful");
-    //     })
-    //     .catch((error) => console.log(error));
-    // };
-  
-    return (
-      <div>
-        {authUser && (
-          <>
-            {/* <p>{`Signed In as ${authUser.email}`}</p> */}
-            {navigate("/calendar")}
-            {/* <button onClick={userSignOut}>Sign Out</button> */}
-          </>
-        ) }
-      </div>
-    );
-}
+export default AuthDetails;

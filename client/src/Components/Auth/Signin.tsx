@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, {useState} from 'react'
 import { auth } from '../../config';
-import AuthDetails from '../AuthDetails';
+import { useNavigate } from 'react-router-dom';
 import background from "../../Assets/bg-green.svg";
 import Header from '../Header/Header';
 import "./auth.scss";
@@ -10,12 +10,14 @@ import { Link } from 'react-router-dom';
 export default function Signin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const signIn = (e:any) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             console.log(userCredential);
+            navigate("/summary");
           })
           .catch((error) => {
             console.log(error);
@@ -24,7 +26,7 @@ export default function Signin() {
 
   return (
     <>
-    <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
+    <div className="authentication" style={{ backgroundImage: `url(${ background })` }}>
     <Header />
     <h2>Log In to your Account</h2>
     <form onSubmit={signIn} className="form__container">
@@ -45,7 +47,6 @@ export default function Signin() {
       <button type="submit" className="form__container-input form__container-btn">Log in</button>
       <h4>No account yet? <Link to='/register' className="createaccount">Create Account</Link></h4>
     </form>
-    <AuthDetails/>
   </div>
 
   </>

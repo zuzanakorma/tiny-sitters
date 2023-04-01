@@ -7,11 +7,9 @@
     "weekdays": "true",
     "weekends": "false",
     "bookings": [
-      "2023-04-01T17:00:00.000Z",
-      "2023-03-30T12:00:00.000Z",
-      "2023-10-10T14:00:00.000Z",
-      "2023-10-10T14:00:00.000Z"
-    ],
+      "18-04-2023,19:30,23:00",
+      "20-04-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/HVtxRKv/alex.jpg"
   },
   {
@@ -22,10 +20,9 @@
     "weekdays": "false",
     "weekends": "true",
     "bookings": [
-      "2023-04-01T14:00:00.000Z",
-      "2023-03-31T09:00:00.000Z",
-      "2023-03-31T14:00:00.000Z"
-    ],
+      "18-05-2023,19:30,23:00",
+      "20-05-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/ymTKDX0/sarah.jpg"
   },
   {
@@ -35,7 +32,10 @@
     "description": "Brian is a highly experienced and qualified babysitter with 4 years of experience working with children. Brian also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
     "weekdays": "true",
     "weekends": "false",
-    "bookings": [],
+    "bookings": [
+      "18-06-2023,19:30,23:00",
+      "20-06-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/jZyT33D/brian.jpg"
   },
   {
@@ -45,7 +45,10 @@
     "description": "SuperNany  is a highly experienced and qualified babysitter with 4 years of experience working with children. Alex also has a passion for playing football and loves to use it as a way to connect with kids and bond with them. In addition to football, Alex has a knack for coming up with fun and engaging games to keep kids entertained and stimulated. but who also knows how to create an environment of joy, creativity, and fun.",
     "weekdays": "true",
     "weekends": "false",
-    "bookings": [],
+    "bookings": [
+      "18-07-2023,19:30,23:00",
+      "20-07-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/JKmdQ0X/hugo.jpg"
   },
   {
@@ -56,9 +59,9 @@
     "weekdays": "true",
     "weekends": "false",
     "bookings": [
-      "2023-05-01T14:00:00.000Z",
-      "2023-02-31T09:00:00.000Z"
-    ],
+      "18-08-2023,19:30,23:00",
+      "20-08-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/jZ6t2gd/britney.jpg"
   },
   {
@@ -69,9 +72,9 @@
     "weekdays": "true",
     "weekends": "false",
     "bookings": [
-     "2023-01-01T11:00:00.000Z",
-     "2023-02-15T08:00:00.000Z"
-    ],
+      "14-04-2023,19:30,23:00",
+      "21-04-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/T4yG0Zz/simon.jpg"
   },
   {
@@ -82,8 +85,9 @@
     "weekdays": "true",
     "weekends": "false",
     "bookings": [
-      "2023-03-07T15:00:00.000Z"
-    ],
+      "10-04-2023,19:30,23:00",
+      "20-04-2023,11:00,22:00"
+  ],
     "image": "https://media.istockphoto.com/id/1372428308/photo/young-man-smiling-while-wearing-a-yellow-shirt-by-a-yellow-wall.jpg?b=1&s=170667a&w=0&k=20&c=eHEYVv7LG5R2TLgDq2DOP6hd1daSu7GbCILS3ZRDk6A="
   },
   {
@@ -93,13 +97,7 @@
     "description": "Elise is a skilled and dedicated babysitter with two years of experience working in the childcare industry. She loves spending time with children and has a natural talent for creating a fun and safe environment for them to learn and grow. One of Victoria's favorite things to do with kids is to read to them. She believes that reading not only helps children develop important literacy skills, but also fosters their imagination and creativity. She often brings her favorite children's books to read aloud to the children she cares for, and encourages them to ask questions and participate in the story. Parents who entrust their children to Victoria can rest assured that they are in good hands. She is reliable, responsible, and always puts the children's safety and well-being first. With her passion for childcare and commitment to excellence, Victoria is a top choice for families seeking a caring and experienced babysitter.",
     "weekdays": "true",
     "weekends": "false",
-    "bookings": [
-      "2023-04-11T13:00:00.000Z",
-      "2023-05-22T18:00:00.000Z",
-      "2023-06-08T20:00:00.000Z",
-      "2023-07-14T12:00:00.000Z",
-      "2023-08-16T03:00:00.000Z"
-    ],
+    "bookings": [  ],
     "image": "https://i.ibb.co/vZKpv0p/elise.jpg"
   },
   {
@@ -110,7 +108,9 @@
     "weekdays": "true",
     "weekends": "false",
     "bookings": [
-    ],
+      "18-04-2023,19:30,23:00",
+      "20-04-2023,16:00,22:00"
+  ],
     "image": "https://i.ibb.co/47mLwyY/chelsea.jpg"
   },
   {
@@ -118,11 +118,12 @@
     "name": "Kimberly",
     "dateOfBirth": "10/06/1995",
     "description": "Sarah Johnson is a highly experienced and dedicated babysitter who has a genuine passion for working with children. With several years of experience in childcare, she has honed her skills and techniques to ensure that children are well taken care of and happy in her care. Sarah's warm and friendly demeanor makes her an excellent caregiver, and she always takes the time to listen to the needs of both parents and children. Her patience and compassion are unmatched, and she has a natural talent for connecting with kids of all ages. As a creative and resourceful babysitter, Sarah loves to come up with new and exciting activities that keep children entertained and stimulated. Whether it's playing board games, doing arts and crafts, or going on outdoor adventures, she always ensures that every child in her care is having fun while also learning and growing. Parents can trust Sarah to provide exceptional care for their children, knowing that she is reliable, responsible, and committed to their well-being. Her dedication to creating a safe and nurturing environment for children is unmatched, making her a top choice for families seeking a skilled and caring babysitter.",
-     "weekdays": "true",
+    "weekdays": "true",
     "weekends": "false",
     "bookings": [
-
-    ],
+      "18-04-2023,19:30,23:00",
+      "20-04-2023,16:00,22:00"
+  ],
     "image": "https://media.istockphoto.com/id/936419870/photo/charming-female-on-yellow-backdrop.jpg?s=612x612&w=0&k=20&c=OcsaV1ceOQzjj8KopR4NEMKSJKU_1GOBr4ykZeC7zSQ="
   }
 ]

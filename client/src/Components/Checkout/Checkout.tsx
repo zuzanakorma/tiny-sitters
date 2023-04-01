@@ -5,6 +5,8 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import './checkout.scss';
 
 const Checkout = () => {
+
+    const booking = 'hardcoded booking';
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
@@ -45,7 +47,7 @@ const Checkout = () => {
     useEffect(() => {
         if (success) {
         
-            navigate("/success")
+            navigate("/success", { state: { booking: booking, orderID: orderID } });
             // alert("Payment successful!!");
             console.log('Order successful . Your order id is--', orderID);
         }

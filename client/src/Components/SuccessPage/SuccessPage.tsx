@@ -1,11 +1,17 @@
 import React from 'react'
-import App from '../../App';
 import './successPage.scss';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-export default function SuccessPage() {
+const SuccessPage: React.FC = () => {
+  const location = useLocation();
+  const booking = location.state.booking;
+  const orderID = location.state.orderID;
+
+
+  
   const navigate = useNavigate();
-  const backToHome = ()=>{
+  const backToHome = () => {
     navigate("/");
   }
   return (
@@ -22,11 +28,14 @@ export default function SuccessPage() {
   </div>
 
     <div className='successPage'>
-        <p>Thank You for your Booking!</p>
-        <p>We will send You confirmation email soon.</p>   
+        <p>{ booking }Thank You for your: { orderID } Booking!</p>
+        <p>We will send you a confirmation email soon.</p>
+        You can see your bookings here:   
         <button className='backbtn' onClick={backToHome}>Go back to Home page</button>
     </div>
 
     </>
   )
 }
+
+export default SuccessPage;

@@ -15,7 +15,8 @@ export default function Signup() {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
-            navigate("/");
+          navigate('/login')
+
           })
           .catch((error) => {
             console.log(error);

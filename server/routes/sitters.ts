@@ -1,35 +1,30 @@
 import Router from 'express';
-import { getAvailableSitters, getSitterById, updateSitterBookings} from '../sittersDb/db';
+import { getAvailableSitters, getSitterById, updateSitterBookings } from '../sittersDb/db';
 
 const router = Router();
 
-router.get('/available/:date', async (req, res) => {
-  const {date} = req.params
-  // console.log(req.query.test)
-  const sitters = await getAvailableSitters(date);
+router.get('/available', async (_req, res) => {
+  const sitters = await getAvailableSitters();
   res.json(sitters);
 });
 
 router.get('/:id', async (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
   const sitter = await getSitterById(id);
   res.json(sitter);
-  console.log("here",sitter);
+  console.log('here', sitter);
 });
 
 router.patch('/:id', async (req, res) => {
-  const id = req.params.id;
-  const date: string= req.body.date;
-  const sitter = await updateSitterBookings(id,date);
-   return res
-   .set('Content-Type', 'application/json')
-   .status(200)
-   .json(sitter);
-
+  const { id } = req.params;
+  const { date } = req.body;
+  const sitter = await updateSitterBookings(id, date);
+  return res
+    .set('Content-Type', 'application/json')
+    .status(200)
+    .json(sitter);
 });
 
-
-//email testing
-
+// email testing
 
 export default router;
