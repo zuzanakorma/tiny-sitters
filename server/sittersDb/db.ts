@@ -23,7 +23,8 @@ const getSitterFromFirebase = async (email:any) => {
   const userDoc = querySnapshot.docs[0];
   return {
     username: userDoc.get('name'),
-    email: userDoc.get('email')
+    email: userDoc.get('email'),
+    address: userDoc.get('address')
   };
 };
 

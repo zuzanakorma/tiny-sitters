@@ -6,13 +6,14 @@ import Header from '../Header/Header';
 type User ={
     username: string;
     email: string;
+    address:string;
   }
   
 
 export default function Profile() {
     let { state } = useLocation();
     const email = state.email;
-    const [user, setUser] = useState<User>({username: "", email: ""});
+    const [user, setUser] = useState<User>({username: "", email: "", address:"" });
 
     const getUserInfo = async (email:any) => {
         try {
@@ -35,6 +36,7 @@ export default function Profile() {
     <div>
         <h1>Name: {user.username}</h1>
         <h1>Email: {user.email}</h1>
+        <h1>Address: {user.address}</h1>
     </div>
     </>
   )
