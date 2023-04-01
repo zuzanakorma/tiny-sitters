@@ -7,7 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from "react-router-dom";
 import './calendar.scss';
 import { Link } from "react-router-dom";
-import Profile from "../Profile/Profile";
 
 type AuthUser = {
   email: undefined | string;
