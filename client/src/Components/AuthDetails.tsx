@@ -8,14 +8,14 @@ import { useDispatch } from 'react-redux';
 
 
 const AuthDetails = () => {
-  const [authUser, setAuthUser] = useState<AuthUser>();
+  const [authUser, setAuthUser] = useState() as any;
   const dispatch = useDispatch();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user: any) => {
       if (user) {
         setAuthUser(user);
-        dispatch(login({ userUid: authUser!.userUid, userEmail: authUser!.userEmail }))
+        dispatch(login({ id: authUser!.uid, email: authUser!.email } as AuthUser));
       } else {
         setAuthUser(undefined);
       }
@@ -32,7 +32,7 @@ const AuthDetails = () => {
     <div className="Navigation">
       {authUser ? (
         <>
-          <p>{`Signed in as ${authUser.userEmail}`}</p>
+          <p>{`Signed in as ${authUser.uid}`}</p>
           <p>Bookings</p>
           <Signout />
         </>

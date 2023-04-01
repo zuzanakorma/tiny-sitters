@@ -9,9 +9,9 @@ import { AuthUser, Reservation } from '../../../../types';
 
 const Summary: React.FC = () => {
     const user: AuthUser = useSelector((state: any) => state.user);
-    // const reservation: Reservation = useSelector((state: any) => state.reservation);
-    const { userUid, userEmail } = user;
-    // const { sitterId } = reservation;
+    const reservation: Reservation = useSelector((state: any) => state.reservation);
+    const { id, email } = user;
+    const { sitterId } = reservation;
 
 
 
@@ -24,7 +24,7 @@ const Summary: React.FC = () => {
         <div className="mainpage" style={{ backgroundImage: `url(${background})` }}>
             <Header />
         <h1>Summary:</h1>
-            <p> {userUid} {userEmail} </p>
+            <p> {id} {email} {sitterId}</p>
         <Checkout/>
         </div>
         <Signout />

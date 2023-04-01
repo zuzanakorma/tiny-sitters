@@ -2,6 +2,11 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { AuthUser, Reservation } from '../../../types';
 
 
+const userState = { 
+  id: 'leeg', 
+  email: 'leeg', 
+} as AuthUser;
+
 const emptyReservationState = {
   sitterId: 'empty',
   sitterName: 'empty',
@@ -11,16 +16,20 @@ const emptyReservationState = {
   endTime: null,
 } as Reservation;
 
-const initialState = { value: { userUid: "", userEmail: "" } as AuthUser };
+
 const userSlice = createSlice({
   name: 'user',
-        initialState,
+  initialState: userState,
   reducers: {
     login: (state, action) => {
-                state.value = action.payload;
+      return {
+        ...state,
+        id: action.payload.id,
+        email: action.payload.email,
+      };
     },
     logout: (state) => {
-      state = initialState
+      state = userState;
     },
   }, 
 });

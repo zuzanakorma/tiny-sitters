@@ -10,8 +10,8 @@ export type SitterType = {
 }
 
 export type AuthUser = {
-  userUid: string;
-  userEmail: string;
+  id: string,
+  email: string,
 } 
 
 export type Reservation = {
