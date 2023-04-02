@@ -6,6 +6,8 @@
 .pnp.js
 
 *data/
+*dist/
+
 # testing
 /coverage
 

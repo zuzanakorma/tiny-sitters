@@ -7,7 +7,10 @@
     "start": "nodemon index.ts",
     "docker:start": "docker compose up",
     "docker:init": "npm run resetdata && npm run docker:start",
-    "docker:close": "docker compose down"
+    "docker:close": "docker compose down",
+    "build": "tsc --build && npm run copy-files",
+    "clean": "tsc --build --clean",
+    "copy-files": "cp ./db/preSeedData.json ./dist/db/"
   },
   "keywords": [],
   "author": "GENESIS",
