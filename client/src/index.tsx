@@ -16,7 +16,9 @@ import Checkout from './Components/Checkout/Checkout';
 import SuccessPage from './Components/SuccessPage/SuccessPage';
 import { Provider } from 'react-redux';
 import { store } from './Components/store';
-// import reportWebVitals from './reportWebVitals';
+import Profile from './Components/Profile/Profile';
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -32,10 +34,14 @@ root.render(
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/sitters" element={<Sitters />} />
         <Route path="/selectedsitter" element={<SelectedSitter />} />
+
         <Route path="/client" element={<ClientForm />} />
         <Route path="/summary" element={<Summary />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<SuccessPage />} />
+         <Route path="/profile" Component={Profile} />
+
+      
       </Routes>
       </Provider>
     </BrowserRouter>

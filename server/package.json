@@ -7,7 +7,10 @@
     "start": "nodemon index.ts",
     "docker:start": "docker compose up",
     "docker:init": "npm run resetdata && npm run docker:start",
-    "docker:close": "docker compose down"
+    "docker:close": "docker compose down",
+    "build": "tsc --build && npm run copy-files",
+    "clean": "tsc --build --clean",
+    "copy-files": "cp ./db/preSeedData.json ./dist/db/"
   },
   "keywords": [],
   "author": "GENESIS",
@@ -16,6 +19,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "firebase": "^9.19.0",
+    "firebase-admin": "^11.5.0",
     "mongodb": "^5.1.0",
     "ts-node": "^10.9.1"
   },
@@ -26,6 +31,7 @@
     "@types/mongodb": "^4.0.7",
     "@types/node": "^18.15.7",
     "eslint-config-salt-typescript": "^1.0.0",
+    "node-mailjet": "^3.4.1",
     "nodemon": "^2.0.22",
     "typescript": "^5.0.2"
   }

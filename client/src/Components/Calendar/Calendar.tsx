@@ -18,6 +18,7 @@ export default function Calendar() {
     setHours(setMinutes(new Date(), 0), 12)
   );
 
+
 function handleChange(value: Date | null) {
     if (value) {
       setStartDate(value);
@@ -87,7 +88,14 @@ const selectedDate: Reservation = {
        </div>
 
         </div>
-     
+
+
+ {/* 
+        <Link className="next-btn" to="/profile" state={{email: email}}>Profile
+          <div className='next-btn' onClick={calendar}>Next</div>
+          </Link>
+         */}
+       
     </>
   );
 }
