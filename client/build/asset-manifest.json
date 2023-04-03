@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.9e37a8f4.css",
-    "main.js": "/static/js/main.81b34be6.js",
+    "main.css": "/static/css/main.db2ce161.css",
+    "main.js": "/static/js/main.453294c0.js",
+    "static/media/bg-twirls.svg": "/static/media/bg-twirls.f1f5228dc711505346315f57d0d7c745.svg",
     "static/media/bg-green.svg": "/static/media/bg-green.96a82556b16a9005dd424d7e59143c16.svg",
     "static/media/bg.svg": "/static/media/bg.921d9150082ce6082d1e8bdfd1b0ba0f.svg",
     "static/media/tinysitters_logo.svg": "/static/media/tinysitters_logo.2aefabf88d737c9fc18501001ba7e2b2.svg",
     "index.html": "/index.html",
-    "main.9e37a8f4.css.map": "/static/css/main.9e37a8f4.css.map",
-    "main.81b34be6.js.map": "/static/js/main.81b34be6.js.map"
+    "main.db2ce161.css.map": "/static/css/main.db2ce161.css.map",
+    "main.453294c0.js.map": "/static/js/main.453294c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e37a8f4.css",
-    "static/js/main.81b34be6.js"
+    "static/css/main.db2ce161.css",
+    "static/js/main.453294c0.js"
   ]
 }

@@ -25,7 +25,7 @@ export default function Signup() {
     
   return (
     <>
-    <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
+    <div className="islandaquabg" style={{ backgroundImage: `url(${background})` }}>
     <Header />
     <form onSubmit={signUp} className="form__container">
       <h2>Create Account</h2>
@@ -49,7 +49,7 @@ export default function Signup() {
         className="form__container-input"
         placeholder="Repeat Password"
       ></input>
-      <button className="form__container-input form__container-btn" type="submit">Sign Up</button>
+      <button className="btn" type="submit">Sign Up</button>
     </form>
     
   </div>

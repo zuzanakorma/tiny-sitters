@@ -10,20 +10,21 @@ export type SitterType = {
 }
 
 export type AuthUser = {
-  id: string,
-  email: string,
+  userId: string,
+  userEmail: string,
 } 
 
 export type Reservation = {
-  sitterId: string,
-  sitterName: string,
+  sitterId?: string,
+  sitterName?: string,
   dateOfBooking: string,
   dayNameOfBooking: string,
-  startTime: number | null,
-  endTime: number | null,
+  startTime: string,
+  endTime: string,
 }
 
 export type insertBooking = Reservation & AuthUser;
-interface insertedBooking extends insertBooking { 
+export interface insertedBooking extends insertBooking { 
   _id: string;
+  price: number;
 }

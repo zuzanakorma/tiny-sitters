@@ -11,6 +11,7 @@ import moment from 'moment';
 import TimeRange from 'react-time-range';
 import { Link } from 'react-router-dom';
 import AuthDetails from '../AuthDetails';
+import { Reservation } from '../../../../types';
 
 export default function Calendar() {
   const [startDate, setStartDate] = useState(
@@ -43,12 +44,12 @@ const end = (event: { endTime: SetStateAction<string>; }) => setEndTime(event.en
 
 console.log({ moment: moment().startOf('day').format() });
 
-const selectedDate = [
-  moment(startDate).format('DD-MM-YYYY'),
-  moment(startTime).format('HH:mm'),
-  moment(endTime).format('HH:mm'),
-  moment(startDate).format('dddd'),
-];
+const selectedDate: Reservation = { 
+  dateOfBooking: moment(startDate).format('DD-MM-YYYY'),
+  startTime: moment(startTime).format('HH:mm'),
+  endTime: moment(endTime).format('HH:mm'),
+  dayNameOfBooking: moment(startDate).format('dddd'),
+};
 
  
   return (

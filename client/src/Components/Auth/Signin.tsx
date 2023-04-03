@@ -4,19 +4,24 @@ import { auth } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import background from "../../Assets/bg-green.svg";
 import Header from '../Header/Header';
+import { AuthUser } from '../../../../types';
+import { login } from '../store';
+import { useDispatch } from 'react-redux';
 import "./auth.scss";
 import { Link } from 'react-router-dom';
 
 export default function Signin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const signIn = (e:any) => {
+    const signIn = async (e:any) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
-            console.log(userCredential);
+            console.log(userCredential.user.uid);
+            dispatch(login({ userId: userCredential.user.uid, userEmail: userCredential.user.email } as AuthUser));
             navigate("/summary");
           })
           .catch((error) => {
@@ -26,7 +31,7 @@ export default function Signin() {
 
   return (
     <>
-    <div className="authentication" style={{ backgroundImage: `url(${ background })` }}>
+    <div className="islandaquabg" style={{ backgroundImage: `url(${ background })` }}>
     <Header />
     <h2>Log In to your Account</h2>
     <form onSubmit={signIn} className="form__container">
@@ -44,7 +49,7 @@ export default function Signin() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       ></input>
-      <button type="submit" className="form__container-input form__container-btn">Log in</button>
+      <button type="submit" className="btn">Log in</button>
       <h4>No account yet? <Link to='/register' className="createaccount">Create Account</Link></h4>
     </form>
   </div>
