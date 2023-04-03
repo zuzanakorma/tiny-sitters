@@ -62,6 +62,10 @@ const reservationSlice = createSlice({
         endTime: action.payload.endTime,
         };
      },     
+     clear: (state) => {
+      localStorage.removeItem('reservation');
+      return emptyReservationState;
+    },
    }, 
 });
 
@@ -97,7 +101,7 @@ const bookingSlice = createSlice({
 
 
 export const { login, logout } = userSlice.actions;
-export const { reservationdata } = reservationSlice.actions;
+export const { reservationdata,clear } = reservationSlice.actions;
 export const { bookingdata, success } = bookingSlice.actions;
 
 

@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import api from '../../Api/api';
 import Header from '../Header/Header';
 import './profile.scss';
+import { useSelector } from 'react-redux';
+import { bookingdata } from '../store';
 
 type User ={
     username: string;
@@ -12,13 +14,15 @@ type User ={
   
 
 export default function Profile() {
-    let { state } = useLocation();
-    const email = state.email;
+  const email = useSelector((state: any)=> state.user)
+  const { userEmail } = email
+    // let { state } = useLocation();
+    // const email = state.email;
     const [user, setUser] = useState<User>({username: "", email: "", address:"" });
 
     const getUserInfo = async (email:any) => {
         try {
-          const response = await api.get(`/api/user/${email}`)
+          const response = await api.get(`/api/user/${userEmail}`)
           setUser(response.data)
         //   setSitters(response.data);
         } catch (error) {

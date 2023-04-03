@@ -5,8 +5,7 @@ import router from './routes/sitters';
 
 import { preSeedData } from './sittersDb/db';
 import users from './routes/user';
-
-
+import bookings from "./routes/bookings";
 
 dotenv.config();
 
@@ -21,5 +20,6 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/sitters', router);
 app.use('/api/user', users);
+app.use('/api/bookings', bookings);
 app.listen(port, () => console.log(`listening on port ${port}`));
 export default app;

@@ -6,6 +6,8 @@ import background from "../../Assets/bg-green.svg";
 import Header from '../Header/Header';
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
+import { signOut } from "firebase/auth";
+
 
 export default function Signup() {
     const [name, setName] = useState("");
@@ -14,22 +16,33 @@ export default function Signup() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+  
+        
     const signUp = (e:any) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
 
           .then(async (userCredential) => {
-            navigate("/");
+            
             await addDoc(collection(db, "users"), {
               email: userCredential.user.email,
               name: name,
               address:address
             });
+                  signOut(auth)
+                .then(() => {
+                  navigate("/login")
+                })
+          .catch((error) => console.log(error));
+            
+            // navigate("/login");
 
           })
           .catch((error) => {
             console.log(error);
           });
+       
+
       };
     
   return (

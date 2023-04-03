@@ -16,7 +16,7 @@ const Sitters: React.FC = (props) => {
   useEffect(() => {
     const getAvailableSitters = async () => {
       try {
-        const response = await api.get('/api/sitters/available');
+        const response = await api.get('api/sitters/available');
         const allSitters = response.data;
         const availableSitters = allSitters.filter((s: SitterType) => {
           const { bookings } = s;

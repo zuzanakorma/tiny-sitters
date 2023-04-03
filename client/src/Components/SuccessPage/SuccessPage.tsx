@@ -2,17 +2,31 @@ import React from 'react'
 import './successPage.scss';
 import { useNavigate } from "react-router-dom";
 import { insertedBooking } from '../../../../types';
+import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
+import api from '../../Api/api';
+
 
 const SuccessPage: React.FC = () => {
   const booking: insertedBooking = useSelector((state: any) => state.booking);
   const price = booking.price;
+
+
+  const completedBooking: insertedBooking = {
+    ...booking, 
+    _id: uuidv4(),
+  }
+
+  api.post('api/bookings',completedBooking).then((response)=>{
+    console.log("HERE", response.data)
+  })
 
   const navigate = useNavigate();
   const backToHome = () => {
     navigate("/");
   }
 
+console.log(booking.userEmail)
   return (
     <>
       <h1>Payment Successful</h1>

@@ -3,18 +3,22 @@ import Header from '../Header/Header';
 import Checkout from './Checkout';
 import { AuthUser, Reservation, SitterType, insertedBooking } from '../../../../types';
 import AuthDetails from '../AuthDetails';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { bookingdata } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 
 
+
+
+
 const Summary: React.FC = (props) => {
-    const location = useLocation();
-    const propsData: SitterType = location.state;
-   
-    const user: AuthUser = useSelector((state: any) => state.user);
-    const { userId, userEmail } = user;
+const location = useLocation();
+const propsData: SitterType = location.state;
+const navigate = useNavigate();
+
+const user: AuthUser = useSelector((state: any) => state.user);
+const { userId, userEmail } = user;
     const reservation: Reservation = useSelector((state: any) => state.reservation);
     const { sitterName, sitterId, dateOfBooking, dayNameOfBooking, startTime, endTime } = reservation;
    
@@ -43,18 +47,24 @@ const Summary: React.FC = (props) => {
 
     const formatPrice = (price: number) => {
         return parseFloat(price.toFixed(2));
-      };
+  };
 
     const roundedPrice = formatPrice(incPrice);
         
       console.log(`This is from here ${roundedPrice}`);
       console.log(`This is from the store ${totalprice}`);
- //if logged out navigate to login page
- //if no data is selected go to calandar
- //if no user is selected then go to available users
 
- //make a function for price calculation
+
+ //if no data is selected go to calandar
+ //if no sitter is selected then go to available sitter
+
  //make a function for duration calculation
+
+if (userEmail == "leeg") {
+  (navigate('/login'))
+} if (dateOfBooking === "") {
+  (navigate('/calendar'))
+}
 
  return (
     <>

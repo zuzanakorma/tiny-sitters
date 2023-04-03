@@ -11,7 +11,6 @@ import SelectedSitter from './Components/Sitters/SelectedSitter';
 import Summary from './Components/Checkout/Summary';
 import Signup from './Components/Auth/Signup';
 import Signin from './Components/Auth/Signin';
-import ClientForm from './Components/ClientForm/ClientForm';
 import Checkout from './Components/Checkout/Checkout';
 import SuccessPage from './Components/SuccessPage/SuccessPage';
 import { Provider } from 'react-redux';
@@ -34,9 +33,7 @@ root.render(
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/sitters" element={<Sitters />} />
         <Route path="/selectedsitter" element={<SelectedSitter />} />
-
-        <Route path="/client" element={<ClientForm />} />
-        <Route path="/summary" element={<Summary />} />
+]        <Route path="/summary" element={<Summary />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<SuccessPage />} />
          <Route path="/profile" Component={Profile} />

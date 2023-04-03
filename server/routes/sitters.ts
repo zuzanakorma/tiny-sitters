@@ -34,11 +34,13 @@ router.patch('/:id', async (req, res) => {
     .json(sitter);
 });
 
-router.get('/user/:email', async (req, res) => {
-  const email = req.params.email;
-  const sitter = await getSitterFromFirebase(email);
-  res.json(sitter);
-});
+
+
+// router.get('/user/:email', async (req, res) => {
+//   const email = req.params.email;
+//   const sitter = await getSitterFromFirebase(email);
+//   res.json(sitter);
+// });
 
 
 //email testing

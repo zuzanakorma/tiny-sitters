@@ -12,7 +12,9 @@ interface EmailData {
     }
 const Checkout = () => {
 
- 
+    const email = useSelector((state: any)=> state.user)
+    const { userEmail } = email
+
     //send email function
     const  sendEmailFunction = async (data:EmailData) =>{
      await api.post('api/sitters/send-email', data)
@@ -67,10 +69,8 @@ const Checkout = () => {
       useEffect(() => {
         if (success) {
 
-            sendEmailFunction({email:"obengelpachris@gmail.com"});
-            navigate("/success")
-
-            console.log('Order successful . Your order id is--', orderID);
+            sendEmailFunction({email:userEmail});
+            navigate("/success");
 
         }
     },[success, navigate]);

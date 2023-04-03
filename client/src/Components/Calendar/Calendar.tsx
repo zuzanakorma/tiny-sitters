@@ -90,11 +90,9 @@ const selectedDate: Reservation = {
         </div>
 
 
- {/* 
-        <Link className="next-btn" to="/profile" state={{email: email}}>Profile
-          <div className='next-btn' onClick={calendar}>Next</div>
-          </Link>
-         */}
+ 
+      
+        
        
     </>
   );

@@ -19,8 +19,6 @@ const getSitterFromFirebase = async (email:any) => {
   if (querySnapshot.empty) {
     return null; // User not found
   }
-
-  // We assume that there is only one document per user email
   const userDoc = querySnapshot.docs[0];
   return {
     username: userDoc.get('name'),
@@ -54,6 +52,28 @@ const updateSitterBookings = async (id:string, date:string) => {
   return updateSitter;
 };
 
+const saveBookings = async (data) => {
+  await client.connect();
+  const db: mongoDB.Db = client.db('tinysitters');
+  const col: mongoDB.Collection = db.collection('bookings');
+  const addBooking = await col.insertOne({ data });
+  console.log('created booking', addBooking);
+  return addBooking;
+};
+
+// {
+//   _id: "",
+//   userId: "",
+//   userEmail: "", 
+//   sitterId: "", 
+//   sitterName: "", 
+//   dateOfBooking: "", 
+//   dayNameOfBooking: "", 
+//   startTime: "", 
+//   endTime: "", 
+//   price: 0, 
+// }
+
 const preSeedData = async () => {
   await client.connect();
   const db: mongoDB.Db = client.db('tinysitters');
@@ -64,5 +84,5 @@ const preSeedData = async () => {
 
 
 
-export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData, getSitterFromFirebase };
+export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData, getSitterFromFirebase ,saveBookings};
 
