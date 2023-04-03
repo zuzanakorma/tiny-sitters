@@ -5,6 +5,7 @@ import router from './routes/sitters';
 import {preSeedData} from './sittersDb/db'
 import users from './routes/user';
 
+
 dotenv.config();
 
 if (process.env.PRESEED === "True") {
