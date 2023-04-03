@@ -1,38 +1,48 @@
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
-import { auth } from '../config';
-import { Link, useNavigate } from 'react-router-dom';
-type AuthUser = {
-  email: undefined | string;
-};
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { auth } from "../config";
+import Signout from "./Auth/Signout";
 
-export default function AuthDetails() {
-  const [authUser, setAuthUser] = useState<AuthUser>();
-  const navigate = useNavigate();
+
+const AuthDetails = () => {
+  const [authUser, setAuthUser] = useState() as any;
+
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user: any) => {
       if (user) {
         setAuthUser(user);
-        navigate({
-          pathname: '/calendar',
-          search: `authUser=${encodeURIComponent(JSON.stringify(user))}`,
-        });
+        
       } else {
         setAuthUser(undefined);
       }
     });
-
+  
     return () => {
       listen();
     };
-  }, []);
+  });
+
 
   return (
-    <div>
-      {authUser && (
-        <p>Successfully Log-in</p>
+    <>
+    <div className="Navigation">
+      {authUser ? (
+        <>
+          <p>{`Signed in as ${authUser.email}`}</p>
+          <p>Bookings</p>
+          <p>Profile</p>
+          <Signout />
+        </>
+      ) : (
+        <>
+          <p>About us</p>
+        </>
       )}
-    </div>
+      </div>
+    </>
   );
-}
+  
+};
+
+export default AuthDetails;

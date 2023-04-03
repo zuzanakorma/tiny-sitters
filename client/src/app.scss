@@ -2,6 +2,7 @@
     
 $main-bg-color:  #FFB3C1;
 $purple:#37008a; 
+$dark-purple:#4402a5; 
 $islandaqua: #00C9B8;
 $gray: #E2E0E5;
 $grapefruitred: #FF5E54;
@@ -43,7 +44,7 @@ h4 {
   font-weight: 600;
 }
 
-.mainpage, .authentication {
+.mainpage, .islandaquabg, .graybg {
   position: fixed;
   background-color: $main-bg-color;
   background-repeat: repeat;
@@ -55,8 +56,12 @@ h4 {
   overflow-y: auto;
 }
 
-.authentication {
+.islandaquabg {
   background-color: $islandaqua;
+}
+
+.graybg {
+  background-color: $gray;
 }
   
 .main__title {
@@ -125,3 +130,50 @@ h4 {
   color: $purple;
 }
 
+.form__container, .picker, .main__container {
+  position: relative;
+  top: 6%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  margin: 0px auto 130px;
+}
+
+
+.main__container--button__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0px 20px 160px;
+}
+
+.btn--back, .btn {
+  background-color: transparent;
+  color: white;
+  border: $purple;
+  font-weight: 600;
+  font-size: 24px;
+  padding: 14px 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 30px;
+  border: 3px solid white;
+  border-radius: 3px;
+} 
+
+.btn:hover {
+  background-color: $dark-purple;
+}
+
+
+.btn {
+  background-color: $purple;
+  text-align: center;
+  text-decoration: none;
+  border: 3px solid $purple;
+} 

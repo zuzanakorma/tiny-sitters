@@ -1,12 +1,7 @@
 @use '../../app.scss';
 
 .picker {
-  top: 6%;
-  display: flex;
-  flex-direction: column;
-  width: 90%;
   max-width: 450px;
-  margin: auto;
   align-items: center;
 }
 
@@ -25,9 +20,9 @@
   border: app.$purple;
   padding: 13px 0 17px;
   text-align: center;
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  width: 70%;
+  margin-top: 80px;
+  margin-bottom: 150px;
   text-decoration: none;
 }
 

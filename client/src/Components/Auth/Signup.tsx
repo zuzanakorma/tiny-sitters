@@ -17,6 +17,7 @@ export default function Signup() {
     const signUp = (e:any) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
+
           .then(async (userCredential) => {
             navigate("/");
             await addDoc(collection(db, "users"), {
@@ -24,6 +25,7 @@ export default function Signup() {
               name: name,
               address:address
             });
+
           })
           .catch((error) => {
             console.log(error);
@@ -32,7 +34,7 @@ export default function Signup() {
     
   return (
     <>
-    <div className="authentication" style={{ backgroundImage: `url(${background})` }}>
+    <div className="islandaquabg" style={{ backgroundImage: `url(${background})` }}>
     <Header />
     <form onSubmit={signUp} className="form__container">
       <h2>Create Account</h2>
@@ -70,7 +72,7 @@ export default function Signup() {
         className="form__container-input"
         placeholder="Repeat Password"
       ></input>
-      <button className="form__container-input form__container-btn" type="submit">Sign Up</button>
+      <button className="btn" type="submit">Sign Up</button>
     </form>
     
   </div>

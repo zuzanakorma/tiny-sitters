@@ -8,31 +8,42 @@ import './app.scss';
 import Calendar from './Components/Calendar/Calendar';
 import Sitters from './Components/Sitters/Sitters';
 import SelectedSitter from './Components/Sitters/SelectedSitter';
+import Summary from './Components/Checkout/Summary';
 import Signup from './Components/Auth/Signup';
 import Signin from './Components/Auth/Signin';
 import ClientForm from './Components/ClientForm/ClientForm';
 import Checkout from './Components/Checkout/Checkout';
 import SuccessPage from './Components/SuccessPage/SuccessPage';
+import { Provider } from 'react-redux';
+import { store } from './Components/store';
 import Profile from './Components/Profile/Profile';
-// import reportWebVitals from './reportWebVitals';
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
      <BrowserRouter>
+     <Provider store={store}>
       <Routes>
-        <Route path="/" Component={App} />
-        <Route path="/login" Component={Signin} />
-        <Route path="/register" Component={Signup} />
-        <Route path="/calendar" Component={Calendar} />
-        <Route path="/sitters" Component={Sitters} />
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Signin />} />
+        <Route path="/register" element={<Signup />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/sitters" element={<Sitters />} />
         <Route path="/selectedsitter" element={<SelectedSitter />} />
-        <Route path="/client" Component={ClientForm} />
-        <Route path="/checkout" Component={Checkout} />
-        <Route path="/success" Component={SuccessPage} />
-        <Route path="/profile" Component={Profile} />
+
+        <Route path="/client" element={<ClientForm />} />
+        <Route path="/summary" element={<Summary />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/success" element={<SuccessPage />} />
+         <Route path="/profile" Component={Profile} />
+
+      
       </Routes>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

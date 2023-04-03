@@ -4,11 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import api from "../../Api/api";
 import './checkout.scss';
+import { useSelector } from 'react-redux';
+import { insertedBooking } from '../../../../types';
 
 interface EmailData {
     email: string;
     }
 const Checkout = () => {
+
  
     //send email function
     const  sendEmailFunction = async (data:EmailData) =>{
@@ -20,10 +23,14 @@ const Checkout = () => {
        console.error('Error:', error);
      });
     }
+
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [orderID, setOrderID] = useState(false);
+    const price: insertedBooking = useSelector((state: any) => state.booking.price );
+
+
 
     // creates a paypal order
     const createOrder = (data:any, actions:any) => {
@@ -32,8 +39,8 @@ const Checkout = () => {
                 {
                     description: "Sitter Service",
                     amount: {
-                        currency_code: "USD",
-                        value: 30,
+                        currency_code: "EUR",
+                        value: price,
                     },
                 },
             ],
@@ -57,31 +64,25 @@ const Checkout = () => {
     };
 
     const navigate = useNavigate();
-    useEffect(() => {
+      useEffect(() => {
         if (success) {
+
             sendEmailFunction({email:"obengelpachris@gmail.com"});
             navigate("/success")
-            // alert("Payment successful!!");
+
             console.log('Order successful . Your order id is--', orderID);
+
         }
-    },[success]);
+    },[success, navigate]);
     
     return (
-        <PayPalScriptProvider options={{ "client-id": CLIENT_ID }}>
-            <div>
-                <div className="wrapper">
-                    <div className="product-info">
-                       
-                        <div className="product-price-btn">
-                            
-                            <br></br>
-                            <button className='buy-btn' type="submit" onClick={() => setShow(true)}>
+        <PayPalScriptProvider options={{ "client-id": CLIENT_ID, currency: "EUR" }}>
+    <>
+                            <div className="btn" onClick={() => setShow(true)}>
                                Confirm
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <br></br>
+                            </div>
+                      <div className="payment">
+                
                 {show ? (
                     <PayPalButtons
                         className='paypal-btn'
@@ -90,9 +91,11 @@ const Checkout = () => {
                         onApprove={onApprove}
                     />
                 ) : null}
-            </div>
-        </PayPalScriptProvider>
-    );
+                      </div>
+                      </>
+                 </PayPalScriptProvider>
+    )
+    
 }
 
 export default Checkout
