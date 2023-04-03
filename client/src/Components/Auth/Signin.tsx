@@ -4,17 +4,20 @@ import { auth } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import background from "../../Assets/bg-green.svg";
 import Header from '../Header/Header';
-import { AuthUser } from '../../../../types';
+import { AuthUser, Reservation } from '../../../../types';
 import { login } from '../store';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import "./auth.scss";
 import { Link } from 'react-router-dom';
 
 export default function Signin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const reservation: Reservation = useSelector((state: any) => state.reservation);
+    const { sitterName, sitterId, dateOfBooking, dayNameOfBooking, startTime, endTime } = reservation;
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
 
     const signIn = async (e:any) => {
         e.preventDefault();
@@ -22,6 +25,7 @@ export default function Signin() {
           .then((userCredential) => {
             console.log(userCredential.user.uid);
             dispatch(login({ userId: userCredential.user.uid, userEmail: userCredential.user.email } as AuthUser));
+            
             navigate("/summary");
           })
           .catch((error) => {

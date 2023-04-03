@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import Checkout from './Checkout';
 import { AuthUser, Reservation, SitterType, insertedBooking } from '../../../../types';
@@ -8,14 +8,11 @@ import { bookingdata } from '../store';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 
-
-
-
-
 const Summary: React.FC = (props) => {
 const location = useLocation();
-const propsData: SitterType = location.state;
 const navigate = useNavigate();
+const propsData: SitterType = location.state;
+
 
 const user: AuthUser = useSelector((state: any) => state.user);
 const { userId, userEmail } = user;
@@ -60,11 +57,15 @@ const { userId, userEmail } = user;
 
  //make a function for duration calculation
 
-if (userEmail == "leeg") {
-  (navigate('/login'))
-} if (dateOfBooking === "") {
-  (navigate('/calendar'))
-}
+ useEffect(() => {
+  if (userEmail === "leeg") {
+    navigate('/login');
+  } 
+  if (dateOfBooking === "empty") {
+    navigate('/calendar');
+  }
+}, [navigate, userEmail, dateOfBooking]);
+
 
  return (
     <>
