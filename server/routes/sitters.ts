@@ -1,7 +1,10 @@
 import Router from 'express';
+
+import { getAvailableSitters, getSitterById, updateSitterBookings, getSitterFromFirebase} from '../sittersDb/db';
+
 import mailjet from 'node-mailjet';
 
-import { getAvailableSitters, getSitterById, updateSitterBookings} from '../sittersDb/db';
+
 
 const router = Router();
 
@@ -33,6 +36,14 @@ router.patch('/:id', async (req, res) => {
    .json(sitter);
 
 });
+
+
+router.get('/user/:email', async (req, res) => {
+  const email = req.params.email;
+  const sitter = await getSitterFromFirebase(email);
+  res.json(sitter);
+});
+
 
 //email testing
 router.post('/send-email', async (req, res) => {
