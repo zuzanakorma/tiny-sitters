@@ -2,9 +2,24 @@ import {CLIENT_ID} from '../../Config/Config';
 import React, { useState, useEffect } from "react" ;
 import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import api from "../../Api/api";
 import './checkout.scss';
 
+interface EmailData {
+    email: string;
+    }
 const Checkout = () => {
+ 
+    //send email function
+    const  sendEmailFunction = async (data:EmailData) =>{
+     await api.post('api/sitters/send-email', data)
+    .then((response) => {
+       console.log('Response:', response.data);
+     })
+     .catch((error) => {
+       console.error('Error:', error);
+     });
+    }
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
@@ -44,7 +59,7 @@ const Checkout = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (success) {
-        
+            sendEmailFunction({email:"obengelpachris@gmail.com"});
             navigate("/success")
             // alert("Payment successful!!");
             console.log('Order successful . Your order id is--', orderID);
