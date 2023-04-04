@@ -4,8 +4,8 @@ const bookings = Router();
 
 bookings.post('/', async (req, res) => {
     const bookings = req.body;
-    const sitter = await saveBookings(bookings);
-    res.json(sitter);
+    const booking = await saveBookings(bookings);
+    res.json(booking);
   });
 
   export default bookings;

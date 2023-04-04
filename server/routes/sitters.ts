@@ -3,9 +3,6 @@ import { getAvailableSitters, getSitterById, updateSitterBookings, getSitterFrom
 
 import mailjet from 'node-mailjet';
 
-
-
-
 const router = Router();
 
 router.get('/available', async (_req, res) => {
