@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config";
 import { useNavigate } from 'react-router-dom';
 import "./auth.scss";
-import { logout,clear } from '../store';
+import { logout, clear } from '../store';
 import { useDispatch } from 'react-redux';
 
 

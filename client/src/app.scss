@@ -75,6 +75,16 @@ h4 {
   font-weight: 800;
 }
 
+.navigation {
+  position: fixed;
+  background-color: transparent;
+  top: 20px;
+  left: 10px;
+  z-index: 5;
+  line-height: 27px;
+  font-size: 14px;
+}
+
 @media only screen and (max-height: 800px) {
   .main__title {
     top: 5%;

@@ -1,29 +1,38 @@
 import React from 'react'
 import './successPage.scss';
 import { useNavigate } from "react-router-dom";
-import { insertedBooking } from '../../../../types';
+import { AuthUser, insertedBooking } from '../../../../types';
 import { v4 as uuidv4 } from 'uuid';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import api from '../../Api/api';
+import { clear } from '../store';
 
 
 const SuccessPage: React.FC = () => {
   const booking: insertedBooking = useSelector((state: any) => state.booking);
-  const price = booking.price;
+  const user: AuthUser = useSelector((state: any) => state.user);
+  const { userId, userEmail } = user;
+
+
+  const dispatch = useDispatch(); 
+  const navigate = useNavigate();
 
 
   const completedBooking: insertedBooking = {
     ...booking, 
     _id: uuidv4(),
+    userId: userId,
+    userEmail: userEmail,
   }
 
-  api.post('api/bookings',completedBooking).then((response)=>{
+  api.post('api/bookings', completedBooking).then((response)=> {
     console.log("HERE", response.data)
   })
 
-  const navigate = useNavigate();
+  
   const backToHome = () => {
-    navigate("/");
+    dispatch(clear());
+    setTimeout(() => navigate("/"), 3000);
   }
 
 console.log(booking.userEmail)
@@ -39,9 +48,9 @@ console.log(booking.userEmail)
         </div>
       </div>
       <div className="successPage">
-        <p>Thank you for your booking! The total price is {price}.</p>
-        <p>We will send you a confirmation email soon.</p>
-        <button className='backbtn' onClick={backToHome}>Go back to Home page</button>
+        <p>Thank you for your booking!</p>
+        <p>A confirmation email is sent to { userEmail } soon.</p>
+        <button className='backbtn' onClick={backToHome}>We will redirect you to our homepage.</button>
       </div>
     </>
   )

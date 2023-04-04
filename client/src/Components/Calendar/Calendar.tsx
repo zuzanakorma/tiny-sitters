@@ -11,39 +11,37 @@ import moment from 'moment';
 import TimeRange from 'react-time-range';
 import { Link } from 'react-router-dom';
 import AuthDetails from '../AuthDetails';
-import { Reservation } from '../../../../types';
+import { insertedBooking, Reservation } from '../../../../types';
+import { useDispatch } from 'react-redux';
+import { setBookingData } from '../store';
 
 export default function Calendar() {
-  const [startDate, setStartDate] = useState(
-    setHours(setMinutes(new Date(), 0), 12)
-  );
+  const dispatch = useDispatch();
+  const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), 0), 12));
+  
 
-
-function handleChange(value: Date | null) {
+  function handleChange(value: Date | null) {
     if (value) {
       setStartDate(value);
-      console.log(value);
     }
   }
 
-const pickupTimeEarliest = moment()
-  .startOf('day')
-  .add(30, 'minutes')
-  .format();
-const pickupTimeLatest = moment()
-  .endOf('day')
-  .subtract(30, 'minutes')
-  .format();
+  const pickupTimeEarliest = moment()
+    .startOf('day')
+    .add(30, 'minutes')
+    .format();
+  const pickupTimeLatest = moment()
+    .endOf('day')
+    .subtract(30, 'minutes')
+    .format();
 
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const [startTime, setStartTime] = useState(pickupTimeEarliest);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const [endTime, setEndTime] = useState(pickupTimeLatest);
 const start = (event: { startTime: SetStateAction<string>; }) => setStartTime(event.startTime);
 const end = (event: { endTime: SetStateAction<string>; }) => setEndTime(event.endTime);
 
-console.log({ moment: moment().startOf('day').format() });
 
 const selectedDate: Reservation = { 
   dateOfBooking: moment(startDate).format('DD-MM-YYYY'),
@@ -52,8 +50,7 @@ const selectedDate: Reservation = {
   dayNameOfBooking: moment(startDate).format('dddd'),
 };
 
- 
-  return (
+return (
     <>  
        <AuthDetails />
        <div className='mainpage' style={{ backgroundImage: `url(${background})` }}>
@@ -84,16 +81,17 @@ const selectedDate: Reservation = {
             use24Hours={true}
           />
          </Fragment>
-         <Link to="/sitters" state={selectedDate} className='next-btn'>Next</Link>       
+
+         <Link to="/sitters" state={selectedDate} onClick={() => {
+          dispatch(setBookingData({   
+            dateOfBooking: selectedDate.dateOfBooking,
+            dayNameOfBooking: selectedDate.dayNameOfBooking,
+            startTime: selectedDate.startTime,
+            endTime: selectedDate.endTime,
+          } as insertedBooking))
+        }} className='next-btn'>Next</Link>       
        </div>
-
-        </div>
-
-
- 
-      
-        
-       
+      </div>
     </>
   );
 }
