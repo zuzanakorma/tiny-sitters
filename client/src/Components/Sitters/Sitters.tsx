@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import api from "../../Api/api";
-import { Reservation, SitterType } from "../../../../types";
+import { insertedBooking, SitterType } from "../../../../types";
 import background from "../../Assets/bg-green.svg";
 import './sitters.scss';
 import Header from "../Header/Header";
 import AuthDetails from '../AuthDetails';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSitter } from '../store';
 
-const Sitters: React.FC = (props) => {
-  const location = useLocation();
-  const propsData = location.state;
-  const { dateOfBooking, startTime, endTime, dayNameOfBooking } = propsData as Reservation;
+const Sitters: React.FC = () => {
+  const dispatch = useDispatch();
+  const dateAndTimeslot: insertedBooking = useSelector((state: any) => state.booking);
+  const { dateOfBooking, startTime, endTime, dayNameOfBooking } = dateAndTimeslot;
   const [sitters, setSitters] = useState<SitterType[]>([]);
   
   useEffect(() => {
@@ -37,7 +39,6 @@ const Sitters: React.FC = (props) => {
         console.error(error);
       }
     };
-  
     getAvailableSitters();
   }, [dateOfBooking, startTime]);
 
@@ -53,8 +54,14 @@ const Sitters: React.FC = (props) => {
         <div className="availablesitters">
          {sitters.map((sitter: SitterType) => (
         <div key={sitter._id}>
-      <Link to='/selectedsitter' state={{sitter: sitter, selectedData: propsData}} style={{textDecoration: 'none'}}>
-      <div className="availablesitters__card">
+        <Link to='/selectedsitter' onClick={() => {
+          dispatch(setSitter({
+            sitterId: sitter._id,
+            sitterName: sitter.name 
+            } as insertedBooking))
+            }} state={{sitter: sitter}} 
+            style={{textDecoration: 'none'}}>
+        <div className="availablesitters__card">
         <img className="availablessitters__card__sitterimg" src={sitter.image} width="100" alt="" /><br />
           {sitter.name}
         </div>

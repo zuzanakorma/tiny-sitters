@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { clear } from "../store";
+import { clear, logout } from "../store";
 
 
 export default function Signup() {
@@ -39,14 +39,8 @@ export default function Signup() {
             });
                   signOut(auth)
                 .then(() => {
-                  // dispatch(logout());
-            dispatch(clear())
-            // if (userEmail == "leeg"){
-            //       navigate("/login")
-            // }
-            // if (dateOfBooking === "") {
-            //   (navigate('/calendar'))
-            // }
+             dispatch(logout());
+             dispatch(clear())
             navigate("/login")
                 })
                 

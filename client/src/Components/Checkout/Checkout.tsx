@@ -68,35 +68,28 @@ const Checkout = () => {
     const navigate = useNavigate();
       useEffect(() => {
         if (success) {
-
             sendEmailFunction({email:userEmail});
             navigate("/success");
-
         }
     },[success, navigate]);
     
     return (
         <PayPalScriptProvider options={{ "client-id": CLIENT_ID, currency: "EUR" }}>
-    <>
-                            <div className="btn" onClick={() => setShow(true)}>
-                               Confirm
-                            </div>
-                      <div className="payment">
-                
-                {show ? (
-                    <PayPalButtons
-                        className='paypal-btn'
-                        style={{ layout: "vertical" }}
-                        createOrder={createOrder}
-                        onApprove={onApprove}
-                    />
-                ) : null}
-                      </div>
-                      </>
-                 </PayPalScriptProvider>
-    )
-    
-}
+        <>
+          <div className="btn" onClick={() => setShow(true)}>Confirm</div>
+            <div className="payment">
+              {show ? (
+                <PayPalButtons 
+                  className='paypal-btn'
+                  style={{ layout: "vertical" }}
+                  createOrder={createOrder}
+                  onApprove={onApprove}/>
+                  ) : null}
+             </div>
+        </>
+        </PayPalScriptProvider>
+        )
+    }
 
 export default Checkout
 

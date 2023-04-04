@@ -1,37 +1,26 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthUser, Reservation, insertedBooking } from '../../../types';
+import { AuthUser, insertedBooking } from '../../../types';
 
 
-const userState = { 
-  userId: 'leeg', 
-  userEmail: 'leeg', 
+const emptyUserState = { 
+  userId: "empty", 
+  userEmail: "empty", 
 } as AuthUser;
 
-const emptyReservationState = {
-  sitterId: 'empty',
-  sitterName: 'empty',
-  dateOfBooking: 'empty',
-  dayNameOfBooking: 'empty',
-  startTime: 'empty',
-  endTime: 'empty',
-} as Reservation;
-
 const emptybookingState = {
-  _id: "",
-  userId: "",
-  userEmail: "", 
-  sitterId: "", 
-  sitterName: "", 
-  dateOfBooking: "", 
-  dayNameOfBooking: "", 
-  startTime: "", 
-  endTime: "", 
+  sitterId: "empty", 
+  sitterName: "empty", 
+  dateOfBooking: "empty", 
+  dayNameOfBooking: "empty", 
+  startTime: "empty", 
+  endTime: "empty", 
   price: 0, 
 } as insertedBooking;
 
+
 const userSlice = createSlice({
   name: 'user',
-  initialState: userState,
+  initialState: emptyUserState,
   reducers: {
     login: (state: AuthUser, action: PayloadAction<AuthUser>): AuthUser => {
       return {
@@ -42,73 +31,51 @@ const userSlice = createSlice({
     },
     logout: (state) => {
       localStorage.removeItem('user');
-      return userState;
+      return emptyUserState;
     },
   }, 
 });
-
-const reservationSlice = createSlice({
-   name: 'reservation',
-   initialState: emptyReservationState,
-   reducers: {
-    reservationdata: (state: Reservation, action: PayloadAction<Reservation>) => {
-      return {
-        ...state,
-        sitterId: action.payload.sitterId,
-        sitterName: action.payload.sitterName,
-        dateOfBooking: action.payload.dateOfBooking,
-        dayNameOfBooking: action.payload.dayNameOfBooking,
-        startTime: action.payload.startTime,
-        endTime: action.payload.endTime,
-        };
-     },     
-     clear: (state) => {
-      localStorage.removeItem('reservation');
-      return emptyReservationState;
-    },
-   }, 
-});
-
-
-
 
 const bookingSlice = createSlice({
   name: 'booking',
   initialState: emptybookingState,
   reducers: {
-   bookingdata: (state: insertedBooking, action: PayloadAction<insertedBooking>) => {
+    setSitter: (state: insertedBooking, action: PayloadAction<insertedBooking>): insertedBooking => {
+      return {
+        ...state,
+        sitterId: action.payload.sitterId,
+        sitterName: action.payload.sitterName,
+    };
+  },
+    setBookingData: (state: insertedBooking, action: PayloadAction<insertedBooking>) => {
      return {
-       ...state,
-       _id: action.payload._id,
-       userId: action.payload.userId,
-       userEmail: action.payload.userEmail,
-       sitterId: action.payload.sitterId,
-       sitterName: action.payload.sitterName,
+      ...state,
        dateOfBooking: action.payload.dateOfBooking,
        dayNameOfBooking: action.payload.dayNameOfBooking,
        startTime: action.payload.startTime,
        endTime: action.payload.endTime,
-       price: action.payload.price,
        };
     },     
-    success: (state) => {
-      state = emptybookingState;
+    setPrice: (state: insertedBooking, action: PayloadAction<insertedBooking>): insertedBooking => {
+      return {
+        ...state,
+        price: action.payload.price,
+    };
+  },
+    clear: (state) => {
+      localStorage.removeItem('booking');
+      return emptybookingState;
     },
   }, 
 });
 
 
-
-
 export const { login, logout } = userSlice.actions;
-export const { reservationdata,clear } = reservationSlice.actions;
-export const { bookingdata, success } = bookingSlice.actions;
-
+export const { setSitter, setBookingData, setPrice, clear } = bookingSlice.actions;
 
 export const store = configureStore({
     reducer: {
         user: userSlice.reducer,
-        reservation: reservationSlice.reducer,
         booking: bookingSlice.reducer,
     },
 });
