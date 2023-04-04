@@ -74,6 +74,40 @@ const saveBookings = async (data) => {
 //   price: 0, 
 // }
 
+// has to be in ISO!!!
+// "bookings": [
+//   {
+//     "from": "2023-04-18T19:30:00.000Z",
+//     "to": "2023-04-18T21:30:00.000Z"
+//   },
+//   {
+//     "from": "2023-04-21T19:30:00.000Z",
+//     "to": "2023-04-21T21:30:00.000Z"
+//   }]
+
+
+// const getSitterBookings = async (data) => {
+//   await client.connect();
+//   const db: mongoDB.Db = client.db('tinysitters');
+//   const col: mongoDB.Collection = db.collection('sitters');
+// const from_date=ISODate('2023-04-21T09:30:00.000Z')
+// const to_date=ISODate('2023-04-21T19:29:00.000Z')
+//   const filterDates = col.find({
+//   $and : [ {bookings : {$elemMatch : {
+//     $or: [
+//         { from: { $gte: to_date} },
+//         { to: { $lte: from_date }}
+//     ]
+//   }}},  {bookings : { $not :  {$elemMatch : {
+//     $or: [
+//         { from: { $gte: from_date, $lte : to_date } },
+//         { to: { $lte: to_date , $gte :  from_date}}
+//     ]
+//   }}  } }]
+// })
+// return filterDates;
+// };
+
 const preSeedData = async () => {
   await client.connect();
   const db: mongoDB.Db = client.db('tinysitters');
