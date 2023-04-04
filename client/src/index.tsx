@@ -16,6 +16,7 @@ import SuccessPage from './Components/SuccessPage/SuccessPage';
 import { Provider } from 'react-redux';
 import { store } from './Components/store';
 import Profile from './Components/Profile/Profile';
+import MyBookings from './Components/MyBookings/MyBookings';
 
 
 const root = ReactDOM.createRoot(
@@ -30,16 +31,16 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/register" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/mybookings" element={<MyBookings />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/sitters" element={<Sitters />} />
         <Route path="/selectedsitter" element={<SelectedSitter />} />
-]        <Route path="/summary" element={<Summary />} />
+]       <Route path="/summary" element={<Summary />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<SuccessPage />} />
-         <Route path="/profile" Component={Profile} />
-
-      
-      </Routes>
+        <Route path="/profile" element={<Profile />} />
+       </Routes>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

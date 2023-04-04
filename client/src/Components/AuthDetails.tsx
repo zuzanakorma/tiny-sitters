@@ -27,23 +27,22 @@ const AuthDetails = () => {
 
   return (
     <>
-    <div className="Navigation">
+    <nav className="navigation">
     <Link to="/">Home</Link> 
     <p>About us</p>
       {authUser ? (
         <>
-      
-          <p>{`Signed in as ${authUser.email}`}</p>
-          <p>Bookings</p>
+          <p style={{ lineHeight: '14px' }}>Signed in as <br /> <span style={{ color: 'black' }}> {authUser.email}</span></p>
+          <Link to="/mybookings">My Bookings</Link><br />
           <Link to="/profile">Profile</Link>
           <Signout/>
         </>
       ) : (
         <>
-          <p>SignIn</p>
+          <Link to='/login'>Log in</Link>
         </>
       )}
-      </div>
+      </nav>
     </>
   );
   

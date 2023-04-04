@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
 import api from '../../Api/api';
 import Header from '../Header/Header';
 import './profile.scss';
 import { useSelector } from 'react-redux';
-import { bookingdata } from '../store';
+import AuthDetails from '../AuthDetails';
 
 type User ={
     username: string;
@@ -32,10 +31,11 @@ export default function Profile() {
 
       useEffect(() => {
         getUserInfo(email);
-      }, []);
+      });
 
   return (
     <>
+    <AuthDetails />
     <Header/>
     <h1 className='user-profile'>My Profile</h1>
     <div>
