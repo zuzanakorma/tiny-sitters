@@ -61,6 +61,14 @@ const saveBookings = async (data) => {
   return addBooking;
 };
 
+const getUserBookings = async (userId)=>{
+  await client.connect();
+  const db: mongoDB.Db = client.db('tinysitters');
+  const col: mongoDB.Collection = db.collection('bookings');
+  const allBookings = await col.find({"data.userId": userId}).toArray();
+  return allBookings
+}
+
 // {
 //   _id: "",
 //   userId: "",
@@ -118,5 +126,5 @@ const preSeedData = async () => {
 
 
 
-export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData, getSitterFromFirebase ,saveBookings};
+export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData, getSitterFromFirebase ,saveBookings, getUserBookings};
 

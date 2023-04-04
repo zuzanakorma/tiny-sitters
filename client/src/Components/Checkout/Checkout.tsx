@@ -7,24 +7,13 @@ import './checkout.scss';
 import { useSelector } from 'react-redux';
 import { insertedBooking } from '../../../../types';
 
-interface EmailData {
-    email: string;
-    }
+
 const Checkout = () => {
 
     const email = useSelector((state: any)=> state.user)
     const { userEmail } = email
 
-    //send email function
-    const  sendEmailFunction = async (data:EmailData) =>{
-     await api.post('api/sitters/send-email', data)
-    .then((response) => {
-       console.log('Response:', response.data);
-     })
-     .catch((error) => {
-       console.error('Error:', error);
-     });
-    }
+   
 
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -68,7 +57,6 @@ const Checkout = () => {
     const navigate = useNavigate();
       useEffect(() => {
         if (success) {
-            sendEmailFunction({email:userEmail});
             navigate("/success");
         }
     },[success, navigate]);

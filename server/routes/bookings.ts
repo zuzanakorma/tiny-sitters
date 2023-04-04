@@ -1,6 +1,14 @@
 import Router from 'express';
-import {saveBookings} from '../sittersDb/db'
+import {saveBookings, getUserBookings } from '../sittersDb/db';
+
 const bookings = Router();
+
+
+bookings.get('/:userId', async (req, res) => {
+  const userId = req.params.userId;
+  const userBookings = await getUserBookings(userId);
+  res.json(userBookings);
+});
 
 bookings.post('/', async (req, res) => {
     const bookings = req.body;

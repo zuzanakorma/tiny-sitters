@@ -1,3 +1,5 @@
+import { ObjectID } from './node_modules/mongodb';
+
 export type SitterType = {
   _id: string;
   name: string,
@@ -25,6 +27,6 @@ export type Reservation = {
 
 export type insertBooking = Reservation & AuthUser;
 export interface insertedBooking extends insertBooking { 
-  _id: string;
+  bookingId: string;
   price: number;
 }

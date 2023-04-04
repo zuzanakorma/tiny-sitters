@@ -47,8 +47,8 @@ router.post('/send-email', async (req, res) => {
       '770bb486a9f9e86a695711bbd1c80151'
     );
     
-const { email } = req.body;
-if (!email) {
+const {email,bookingId} = req.body;
+if (!email || !bookingId) {
   return res.status(400).json({ error: 'Email is required' });
 }
 
@@ -67,7 +67,7 @@ const request = mailjetClient.post('send', { version: 'v3.1' }).request({
       Subject: 'Booking Confirmation',
       TextPart: 'Testing Testing',
       HTMLPart:
-        "<h3>Thank you for booking a sitter <a href='localhost/3000/sitters'>TinnySitters</a>!</h3><br/>!",
+        `<h3>Thank you for booking a sitter. Your booking Id is:${bookingId} TinnySitters®</h3><br/>!`,
       CustomID: 'Tinny Sitters',
     },
   ],

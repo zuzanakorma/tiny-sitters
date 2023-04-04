@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
 import './successPage.scss';
 import { useNavigate } from "react-router-dom";
 import { AuthUser, insertedBooking } from '../../../../types';
@@ -8,7 +8,24 @@ import api from '../../Api/api';
 import { clear } from '../store';
 
 
+interface EmailData {
+  email: string,
+  bookingId: string
+  }
+
 const SuccessPage: React.FC = () => {
+
+   //send email function
+   const  sendEmailFunction = async (data:EmailData) =>{
+    await api.post('api/sitters/send-email', data)
+   .then((response) => {
+      console.log('Response:', response.data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+   }
+
   const booking: insertedBooking = useSelector((state: any) => state.booking);
   const user: AuthUser = useSelector((state: any) => state.user);
   const { userId, userEmail } = user;
@@ -20,20 +37,23 @@ const SuccessPage: React.FC = () => {
 
   const completedBooking: insertedBooking = {
     ...booking, 
-    _id: uuidv4(),
+    bookingId: uuidv4(),
     userId: userId,
     userEmail: userEmail,
   }
 
-  api.post('api/bookings', completedBooking).then((response)=> {
-    console.log("HERE", response.data)
-  })
-
+ 
   
-  const backToHome = () => {
+  useEffect(() => {
+
+    api.post('api/bookings', completedBooking).then((response)=> {
+      console.log("HERE", response.data)
+    })
     dispatch(clear());
+    const { bookingId, userEmail } = completedBooking
+    sendEmailFunction({email:userEmail, bookingId:bookingId});
     setTimeout(() => navigate("/"), 3000);
-  }
+  });
 
 console.log(booking.userEmail)
   return (
@@ -50,7 +70,6 @@ console.log(booking.userEmail)
       <div className="successPage">
         <p>Thank you for your booking!</p>
         <p>A confirmation email is sent to { userEmail } soon.</p>
-        <button className='backbtn' onClick={backToHome}>We will redirect you to our homepage.</button>
       </div>
     </>
   )
