@@ -2,19 +2,12 @@ import {CLIENT_ID} from '../../Config/Config';
 import React, { useState, useEffect } from "react" ;
 import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import api from "../../Api/api";
 import './checkout.scss';
 import { useSelector } from 'react-redux';
 import { insertedBooking } from '../../../../types';
 
 
-const Checkout = () => {
-
-    const email = useSelector((state: any)=> state.user)
-    const { userEmail } = email
-
-   
-
+const Checkout = React.memo(() => {
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
@@ -55,11 +48,11 @@ const Checkout = () => {
     };
 
     const navigate = useNavigate();
-      useEffect(() => {
+        setTimeout(() => (500))
         if (success) {
             navigate("/success");
         }
-    },[success, navigate]);
+
     
     return (
         <PayPalScriptProvider options={{ "client-id": CLIENT_ID, currency: "EUR" }}>
@@ -77,7 +70,7 @@ const Checkout = () => {
         </>
         </PayPalScriptProvider>
         )
-    }
+    })
 
 export default Checkout
 

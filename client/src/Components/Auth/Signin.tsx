@@ -18,17 +18,17 @@ export default function Signin() {
     const navigate = useNavigate();
     
 
-    const signIn = async (e:any) => {
-        e.preventDefault();
-        await signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            dispatch(login({ userId: userCredential.user.uid, userEmail: userCredential.user.email } as AuthUser));  
-            navigate("/summary");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
+    const signIn = async (e: any) => {
+      e.preventDefault();
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        dispatch(login({ userId: userCredential.user.uid, userEmail: userCredential.user.email } as AuthUser));  
+        navigate("/summary");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
 
   return (
     <>

@@ -1,13 +1,15 @@
 import * as mongoDB from 'mongodb';
+import admin from 'firebase-admin';
+import { insertedBooking } from '../../types';
 import client from '../db/client';
 
-const data = require('../db/preSeedData.json');
-const admin = require('firebase-admin');
 const serviceAccount = require('../fir-react-authentication-c2241-firebase-adminsdk-psqkv-655ed5a0cf.json');
+
+const data = require('../db/preSeedData.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://fir-react-authentication-c2241.firebaseio.com'
+  databaseURL: 'https://fir-react-authentication-c2241.firebaseio.com',
 });
 
 const database = admin.firestore();
@@ -23,7 +25,7 @@ const getSitterFromFirebase = async (email:any) => {
   return {
     username: userDoc.get('name'),
     email: userDoc.get('email'),
-    address: userDoc.get('address')
+    address: userDoc.get('address'),
   };
 };
 
@@ -52,35 +54,22 @@ const updateSitterBookings = async (id:string, date:string) => {
   return updateSitter;
 };
 
-const saveBookings = async (data) => {
+const saveBookings = async (booking: insertedBooking) => {
   await client.connect();
   const db: mongoDB.Db = client.db('tinysitters');
   const col: mongoDB.Collection = db.collection('bookings');
-  const addBooking = await col.insertOne({ data });
+  const addBooking = await col.insertOne(booking);
   console.log('created booking', addBooking);
   return addBooking;
 };
 
-const getUserBookings = async (userId)=>{
+const getUserBookings = async (id: string) => {
   await client.connect();
   const db: mongoDB.Db = client.db('tinysitters');
   const col: mongoDB.Collection = db.collection('bookings');
-  const allBookings = await col.find({"data.userId": userId}).toArray();
-  return allBookings
-}
-
-// {
-//   _id: "",
-//   userId: "",
-//   userEmail: "", 
-//   sitterId: "", 
-//   sitterName: "", 
-//   dateOfBooking: "", 
-//   dayNameOfBooking: "", 
-//   startTime: "", 
-//   endTime: "", 
-//   price: 0, 
-// }
+  const allBookings = await col.find(({ userId: id }) as insertedBooking).toArray();
+  return allBookings;
+};
 
 // has to be in ISO!!!
 // "bookings": [
@@ -92,7 +81,6 @@ const getUserBookings = async (userId)=>{
 //     "from": "2023-04-21T19:30:00.000Z",
 //     "to": "2023-04-21T21:30:00.000Z"
 //   }]
-
 
 // const getSitterBookings = async (data) => {
 //   await client.connect();
@@ -124,7 +112,12 @@ const preSeedData = async () => {
   col.insertMany(data);
 };
 
-
-
-export { getAvailableSitters, getSitterById, updateSitterBookings, preSeedData, getSitterFromFirebase ,saveBookings, getUserBookings};
-
+export {
+  getAvailableSitters,
+  getSitterById,
+  updateSitterBookings,
+  preSeedData,
+  getSitterFromFirebase,
+  saveBookings,
+  getUserBookings,
+};

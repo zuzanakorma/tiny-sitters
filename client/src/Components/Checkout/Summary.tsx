@@ -61,7 +61,7 @@ useEffect(() => {
           <div className="main__container__summarytable">
             <div className="main__container__summarytable--name">{ sitterName }</div>
             <div className="main__container__summarytable--date">
-              { dateOfBooking }, { dayNameOfBooking }, { startTime } till { endTime }
+            { dayNameOfBooking }, { dateOfBooking }, { startTime } till { endTime } h
             </div>
             <div className="main__container__summarytable--duration">{ durationInHours } hours</div>
             <div className="main__container__summarytable--priceinfo">

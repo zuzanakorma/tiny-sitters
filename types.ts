@@ -1,5 +1,3 @@
-import { ObjectID } from './node_modules/mongodb';
-
 export type SitterType = {
   _id: string;
   name: string,

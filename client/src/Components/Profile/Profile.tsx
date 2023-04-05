@@ -30,7 +30,10 @@ export default function Profile() {
       }
 
       useEffect(() => {
-        getUserInfo(email);
+        const fetchData = async () => {
+          await getUserInfo(email);
+        };
+        fetchData();
       });
 
   return (

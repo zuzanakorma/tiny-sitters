@@ -5,7 +5,7 @@ import router from './routes/sitters';
 
 import { preSeedData } from './sittersDb/db';
 import users from './routes/user';
-import bookings from "./routes/bookings";
+import bookings from './routes/bookings';
 
 dotenv.config();
 

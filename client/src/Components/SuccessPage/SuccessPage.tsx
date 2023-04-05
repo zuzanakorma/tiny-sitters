@@ -1,30 +1,14 @@
-import React, { useEffect }  from 'react'
+import React, { useCallback, useEffect }  from 'react'
 import './successPage.scss';
-import { useNavigate } from "react-router-dom";
-import { AuthUser, insertedBooking } from '../../../../types';
-import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
 import api from '../../Api/api';
 import { clear } from '../store';
-
-
-interface EmailData {
-  email: string,
-  bookingId: string
-  }
+import { AuthUser, insertedBooking } from '../../../../types';
 
 const SuccessPage: React.FC = () => {
-
-   //send email function
-   const  sendEmailFunction = async (data:EmailData) =>{
-    await api.post('api/sitters/send-email', data)
-   .then((response) => {
-      console.log('Response:', response.data);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-   }
+  
 
   const booking: insertedBooking = useSelector((state: any) => state.booking);
   const user: AuthUser = useSelector((state: any) => state.user);
@@ -34,28 +18,51 @@ const SuccessPage: React.FC = () => {
   const dispatch = useDispatch(); 
   const navigate = useNavigate();
 
+  const uniqueId = uuid();
+  const small_id = uniqueId.slice(0, 8);
+  const currentYear = new Date().getFullYear();
+  const bookingId = `${currentYear}${small_id}`;
+
+
 
   const completedBooking: insertedBooking = {
     ...booking, 
-    bookingId: uuidv4(),
+    bookingId: bookingId,
     userId: userId,
     userEmail: userEmail,
   }
 
+    
+  const sendEmailFunction = useCallback(async () => {
+    await api
+      .post('api/sitters/send-email', { email: userEmail, bookingId: bookingId })
+      .then((response) => {
+        console.log('Response:', response.data);
+        setTimeout(() => navigate('/'), 10000); // add timeout here
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, [userEmail, bookingId, navigate]);
+
  
   
   useEffect(() => {
+    api
+      .post('api/bookings', completedBooking)
+      .then(() => sendEmailFunction())
+      .then(() => {
+      dispatch(clear())
+      setTimeout(() => navigate("/"), 4000);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [])
+  
 
-    api.post('api/bookings', completedBooking).then((response)=> {
-      console.log("HERE", response.data)
-    })
-    dispatch(clear());
-    const { bookingId, userEmail } = completedBooking
-    sendEmailFunction({email:userEmail, bookingId:bookingId});
-    setTimeout(() => navigate("/"), 3000);
-  });
-
-console.log(booking.userEmail)
+console.log(3)
   return (
     <>
       <h1>Payment Successful</h1>
@@ -68,8 +75,8 @@ console.log(booking.userEmail)
         </div>
       </div>
       <div className="successPage">
-        <p>Thank you for your booking!</p>
-        <p>A confirmation email is sent to { userEmail } soon.</p>
+        <h3>Thank you for your booking!</h3>
+        <p>Your order id = { bookingId }. <br/>A confirmation email is sent to { userEmail }.</p>
       </div>
     </>
   )

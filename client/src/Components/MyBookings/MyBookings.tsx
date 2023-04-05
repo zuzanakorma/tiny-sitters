@@ -10,26 +10,24 @@ const MyBookings: React.FC = () => {
   const userId = useSelector((state: any)=> state.user.userId);
   const [bookings, setBookings] = useState<any[]>([]);
   
-  const getBookings = async (userId: string) => {
-    try { 
-      const response = await api.get(`api/bookings/${userId}`);
-      console.log("response.data:",response.data);
-      const fetchedBookings = response.data;
-      console.log(fetchedBookings);
-      console.log("hiiiii",fetchedBookings.data.sitterName);
-      console.log("hoooo",fetchedBookings.data.sitterName);
-    
-      setBookings(fetchedBookings);
-    } catch (error) {
-      console.error(error);
-    }
-  }
   useEffect(() => {
-
+    const getBookings = async (userId: insertedBooking) => {
+      try { 
+        const response = await api.get(`api/bookings/${userId}`);
+        console.log("response.data:",response.data);
+        if (response.data.length > 0) {
+          setBookings(response.data);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    
     getBookings(userId);
-
-  console.log(`Use this userId for the api call: ${userId}`);
+    console.log(`Use this userId for the api call: ${userId}`);
+    console.log(`This is being mapped: `);
   }, [userId]);
+
 
  return (
     <>
@@ -38,13 +36,24 @@ const MyBookings: React.FC = () => {
         <Header />
         <h2>My Bookings</h2>
         <div className="main__container">
-          {bookings.map((booking) => (
-            <div key={booking.data.bookingId}>
-              <p>Booking ID: {booking.data.bookingId}</p>
-              <p>Date of Booking: {booking.data.dateOfBooking}</p>
+        {bookings.length === 0 ? (
+          <h3>You haven't any bookings yet</h3>
+        ) : (
+        bookings.map((b: insertedBooking) => {
+          const { bookingId, dateOfBooking, dayNameOfBooking, startTime, endTime, sitterName, price } = b;
+    
+          return (
+          <div key={ bookingId } className="main__container__mybookingstable">
+            <div key={`${dateOfBooking}-name`} className="main__container__mybookingstable--name">{ sitterName }</div>
+            <div key={`${bookingId}-id`} className="main__container__mybookingstable--id">Booking id: {b.bookingId}</div>
+            <div key={`${dateOfBooking}-date`} className="main__container__mybookingstable--date">
+              { dayNameOfBooking }, { dateOfBooking }, { startTime } till { endTime } h
             </div>
-          ))}
-        </div>
+            <div key={`${dateOfBooking}-price`} className="main__container__mybookingstable--price">€ { price }</div>
+          </div>
+          );
+        }))}
+       </div>
       </div>
     </>
   );

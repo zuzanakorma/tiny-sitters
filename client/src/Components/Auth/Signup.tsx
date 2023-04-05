@@ -26,32 +26,24 @@ export default function Signup() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
         
-    const signUp = (e:any) => {
-        e.preventDefault();
-        createUserWithEmailAndPassword(auth, email, password)
-
-          .then(async (userCredential) => {
-            
-            await addDoc(collection(db, "users"), {
-              email: userCredential.user.email,
-              name: name,
-              address:address
-            });
-                  signOut(auth)
-                .then(() => {
-             dispatch(logout());
-             dispatch(clear())
-            navigate("/login")
-                })
-                
-                })
-       
-          .catch((error) => {
-            console.log(error);
-          });
-       
-
-      };
+    const signUp = async (e:any) => {
+      e.preventDefault();
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await addDoc(collection(db, "users"), {
+          email: userCredential.user.email,
+          name: name,
+          address:address
+        });
+        await signOut(auth);
+        dispatch(logout());
+        dispatch(clear());
+        navigate("/login");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
     
   return (
     <>

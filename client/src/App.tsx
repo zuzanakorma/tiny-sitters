@@ -7,13 +7,15 @@ import { useSelector } from 'react-redux';
 
 function App() {
     const booking: insertedBooking = useSelector((state: any) => state.booking)
+    const user: insertedBooking = useSelector((state: any) => state.user)
 
 
 console.log(booking);
+console.log(user);
   
 
   return (
-    <>
+   <>
     <AuthDetails />
     <div className="mainpage" style={{ backgroundImage: `url(${background})` }}>
     <Header/>
@@ -22,10 +24,9 @@ console.log(booking);
       <Link className='main__link' to='/login'>Log in</Link>
       <Link className='main__link' to='/register'>Create Account</Link>
       <Link className='pick__date' to='/calendar'>Pick Date</Link>
-   
-      </div>
-      </div>
-    </>
+    </div>
+    </div>
+   </>
   );
 }
 
