@@ -1,13 +1,17 @@
+
+
+
 export type SitterType = {
-  _id: string;
+  id: string;
   name: string,
+  gender: string;
   dateOfBirth: string,
   description: string,
-  unavailable: boolean,
-  weekends?: boolean,
+  availability: string[],
   image: string
-  bookings: [string]
 }
+
+
 
 export type AuthUser = {
   userId: string,

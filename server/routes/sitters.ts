@@ -1,11 +1,23 @@
 import Router from 'express';
 import mailjet from 'node-mailjet';
 import { getAvailableSitters, getSitterById, updateSitterBookings } from '../sittersDb/db';
+import { insertBooking } from '../../types';
 
 const router = Router();
 
-router.get('/available', async (_req, res) => {
-  const sitters = await getAvailableSitters();
+// router.get('/available', async (_req, res) => {
+//   const sitters = await getAvailableSitters();
+//   res.json(sitters);
+// });
+
+router.get('/available', async (req, res) => {
+  const {
+    dateOfBooking,
+    startTime,
+    endTime,
+    dayNameOfBooking,
+  } = req.query as insertBooking;
+  const sitters = await getAvailableSitters(dateOfBooking, startTime, endTime, dayNameOfBooking);
   res.json(sitters);
 });
 
@@ -57,7 +69,7 @@ router.post('/send-email', async (req, res) => {
         Subject: 'Booking Confirmation',
         TextPart: 'Testing Testing',
         HTMLPart:
-        `<h3>Thank you for booking a sitter. Your booking Id is:${bookingId} TinnySitters®</h3><br/>!`,
+        `<h3>Thank you for booking a sitter. Your booking Id is:${bookingId} TinnySitters®</h3>`,
         CustomID: 'Tinny Sitters',
       },
     ],

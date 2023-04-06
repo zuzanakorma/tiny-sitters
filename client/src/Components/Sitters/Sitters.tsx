@@ -18,29 +18,21 @@ const Sitters: React.FC = () => {
   useEffect(() => {
     const getAvailableSitters = async () => {
       try {
-        const response = await api.get('api/sitters/available');
-        const allSitters = response.data;
-        const availableSitters = allSitters.filter((s: SitterType) => {
-          const { bookings } = s;
-          const overlappingChecker = bookings.some((b) => {
-            let bookingArray = [];
-            bookingArray = String(b).split(",");
-            const [bsD, sT, eT] = bookingArray;
-            const sThour = parseFloat(sT);
-            const eThour = parseFloat(eT);
-            const startTimeHour = parseFloat(startTime);
-            const timeChecker = (startTimeHour >= sThour && startTimeHour<= eThour)
-            return bsD === dateOfBooking && timeChecker;
-          });
-          return !overlappingChecker;
+        const response = await api.get('api/sitters/available', {
+          params: {
+            dateOfBooking: dateOfBooking,
+            startTime: startTime,
+            endTime: endTime,
+            dayNameOfBooking: dayNameOfBooking,
+          },
         });
-        setSitters(availableSitters);
+        setSitters(response.data);
       } catch (error) {
         console.error(error);
       }
-    };
-    getAvailableSitters();
-  }, [dateOfBooking, startTime]);
+    }
+    getAvailableSitters()
+  }, [dateOfBooking, startTime, endTime, dayNameOfBooking])
 
   return (
     <>
@@ -53,10 +45,10 @@ const Sitters: React.FC = () => {
         </div>
         <div className="availablesitters">
          {sitters.map((sitter: SitterType) => (
-        <div key={sitter._id}>
+        <div key={sitter.id}>
         <Link to='/selectedsitter' onClick={() => {
           dispatch(setSitter({
-            sitterId: sitter._id,
+            sitterId: sitter.id,
             sitterName: sitter.name 
             } as insertedBooking))
             }} state={{sitter: sitter}} 

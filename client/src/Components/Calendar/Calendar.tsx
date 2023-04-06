@@ -43,6 +43,10 @@ const start = (event: { startTime: SetStateAction<string>; }) => setStartTime(ev
 const end = (event: { endTime: SetStateAction<string>; }) => setEndTime(event.endTime);
 
 
+console.log(`Starttijd ${startTime}`)
+console.log(`Eindtijd ${endTime}`)
+console.log(`Startdatum ${startDate}`)
+
 const selectedDate: Reservation = { 
   dateOfBooking: moment(startDate).format('DD-MM-YYYY'),
   startTime: moment(startTime).format('HH:mm'),
